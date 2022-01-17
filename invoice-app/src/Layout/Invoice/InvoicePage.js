@@ -1,9 +1,16 @@
+import { Container } from '@mui/material';
 import * as React from 'react';
+import InvoiceTable from '../../Components/InvoiceTable/InvoiceTable';
+import ButtonCreate from '../../Components/ButtonCreate/ButtonCreate';
 
 const InvoicePage = () => {
     return(
         <>
-        <h3>Invoice Page</h3>
+        <Container>
+            <h3>Invoice Page</h3>
+            <ButtonCreate />
+            <InvoiceTable />
+        </Container>
         </>
     )
 }

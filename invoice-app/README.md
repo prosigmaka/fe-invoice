@@ -1,3 +1,6 @@
 ## Read
-cd invoice-app
-npm start
+```npm install ```
+
+```cd invoice-app ```
+
+```npm start ```

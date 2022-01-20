@@ -15,6 +15,7 @@ import { createTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import DashboardPage from "./../Dashboard/DashboardPage";
 import InvoicePage from "./../Invoice/InvoicePage";
+
 const drawerWidth = "auto";
 
 export default function ClippedDrawer() {

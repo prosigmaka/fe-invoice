@@ -8,7 +8,7 @@ const ButtonCreate = () => {
         <>
         <Box sx={{display: 'flex', justifyContent: 'flex-end',}}>
             {/*route to create Invoice from Button Create*/}
-            <Link to={"/create-invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+            <Link to={"/dashboard/create-invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
             <Button 
                 variant="contained" 
                 component="span"

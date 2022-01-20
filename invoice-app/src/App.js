@@ -1,10 +1,9 @@
 import * as React from 'react';
 import './App.css';
-import { Routes, Route } from "react-router-dom";
-
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Layout/Header/Header";
-import LoginPage from "./Layout/Login/LoginPage";
-import DashboardPage from "./Layout/Dashboard/DashboardPage";
+import Login from "../src/pages/Login/Form"
+import Home from "../src/pages/Home/Home"
 import InvoicePage from "./Layout/Invoice/InvoicePage";
 
 import styled from 'styled-components';
@@ -22,8 +21,9 @@ function App() {
       <Header />
       <Container>
         <Routes>
-          <Route exact path={"/"} element={<LoginPage/>} />
-          <Route path={"/dashboard"} element={<DashboardPage/>} />
+          <Route exact path="/" element={<Navigate to="/login" />} />
+          <Route exact path={"/login"} element={<Login/>} />
+          <Route path={"/dashboard"} element={<Home/>} />
           <Route path={"/invoice"} element={<InvoicePage/>} />
         </Routes>
       </Container>

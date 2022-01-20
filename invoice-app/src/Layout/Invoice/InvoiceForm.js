@@ -1,4 +1,4 @@
-import { Grid, Container, Card, CardContent, Divider, TextField } from '@mui/material';
+import { Grid, Container, Card, CardContent, Divider, TextField, Paper, Box } from '@mui/material';
 import {React, useState} from 'react'
 
 const InvoiceForm = () => {
@@ -6,7 +6,7 @@ const InvoiceForm = () => {
 return (
     <>
     <h1>Invoice Form</h1>
-    <Container>
+    <Paper>
         <Grid container justifyContent="space-between" direction="column">
         <Grid container spacing={10}>
             <Grid item xs={12} lg={6} md={4}>
@@ -132,7 +132,7 @@ return (
         </Grid>
 
        
-    </Container>
+    </Paper>
     </>
 );
 }

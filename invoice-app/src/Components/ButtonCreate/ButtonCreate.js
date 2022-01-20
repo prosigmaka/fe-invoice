@@ -1,12 +1,14 @@
 import  { Button, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-
+import { Link } from 'react-router-dom';
 
 const ButtonCreate = () => {
 
     return(
         <>
         <Box sx={{display: 'flex', justifyContent: 'flex-end',}}>
+            {/*route to create Invoice from Button Create*/}
+            <Link to={"/create-invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
             <Button 
                 variant="contained" 
                 component="span"
@@ -20,6 +22,7 @@ const ButtonCreate = () => {
             >
             Create
             </Button>
+            <Link/>
         </Box>
         </>
     );

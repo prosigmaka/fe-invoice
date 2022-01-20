@@ -8,6 +8,7 @@ import InvoicePage from "./Layout/Invoice/InvoicePage";
 import InvoiceForm from './Layout/Invoice/InvoiceForm';
 
 import styled from 'styled-components';
+import DashboardPage from './Layout/Dashboard/DashboardPage';
 const Container = styled.div`
     margin-top: 70px;
     margin-left: 175px;
@@ -22,10 +23,12 @@ function App() {
       <Header />
       <Container>
         <Routes>
-          <Route exact path="/" element={<Navigate to="/login" />} />
-          <Route exact path={"/login"} element={<Login/>} />
-          <Route path={"/dashboard"} element={<Home/>} />
-          <Route path={"/invoice"} element={<InvoicePage/>} />
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path={"/login"} element={<Login/>} />
+          <Route path={"/dashboard"} element={<DashboardPage/>} >
+            <Route path={"home"} element={<Home/>} />
+            <Route path={"invoice"} element={<InvoicePage/>} />
+          </Route>
           <Route path={"/create-invoice"} element={<InvoiceForm/>} />
         </Routes>
       </Container>

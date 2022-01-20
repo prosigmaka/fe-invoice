@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import { useHistory } from "react-router-dom";
 
 const useForm = (callback, validateInfo) => {
     const [values, setValues] = useState({
@@ -8,6 +9,7 @@ const useForm = (callback, validateInfo) => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [toggle, setToogle] = useState(false);
+    // let history = useHistory();
 
     const toggleBtn = (e) => {
         setToogle(prevState => !prevState);
@@ -28,6 +30,7 @@ const useForm = (callback, validateInfo) => {
 
         setErrors(validateInfo(values));
         setIsSubmitting(true);
+        // history.push('/dashboard')
     }
 
     useEffect(() => {

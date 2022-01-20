@@ -9,7 +9,7 @@ const Form = () => {
 
     const navigate = useNavigate();
     function submitForm() {
-        navigate("/dashboard");
+        navigate("/dashboard/home");
     }
 
     return (

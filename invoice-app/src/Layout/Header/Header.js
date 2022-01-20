@@ -31,7 +31,7 @@ export default function ClippedDrawer() {
       <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, background: '#1B3D81' }}>
         <Toolbar>
-          <Link to="/" style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+          <Link to="/dashboard/home" style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
             <Typography variant="h6" noWrap component="div" fontFamily='Montserrat' fontWeight="800">
                 Invoice App
             </Typography>
@@ -50,7 +50,7 @@ export default function ClippedDrawer() {
         <Box sx={{ overflow: 'auto' }}>
           <List>
 
-            <Link to="/dashboard"
+            <Link to="/dashboard/home"
               style={{ color:'inherit', textDecoration: 'none', display: 'block' }}
             >
             <ListItem button key= {<DashboardPage />}>
@@ -63,7 +63,7 @@ export default function ClippedDrawer() {
             </ListItem>
             </Link>
 
-            <Link to="/invoice"
+            <Link to="/dashboard/invoice"
               style={{ color:'inherit', textDecoration: 'none', display: 'block' }}
             >
             <ListItem button key= {<InvoicePage />}>

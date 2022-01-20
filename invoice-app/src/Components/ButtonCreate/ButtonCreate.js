@@ -22,7 +22,7 @@ const ButtonCreate = () => {
             >
             Create
             </Button>
-            <Link/>
+            </Link>
         </Box>
         </>
     );

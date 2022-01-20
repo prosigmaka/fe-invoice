@@ -6,6 +6,7 @@ import Home from "../src/pages/Home/Home"
 import InvoicePage from "./Layout/Invoice/InvoicePage";
 import InvoiceForm from './Layout/Invoice/InvoiceForm';
 import DashboardPage from './Layout/Dashboard/DashboardPage';
+import Other from './pages/Other/Other';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path={"invoice"} element={<InvoicePage/>} />
             <Route path={"create-invoice"} element={<InvoiceForm/>} /> 
           </Route>
+          <Route path={"*"} element={<Other/>} />
         </Routes>
     </div>
   );

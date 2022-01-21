@@ -8,11 +8,6 @@ import InfoIcon from '@mui/icons-material/Info';
 const columns = [
   { field: 'id', headerName: 'ID', width: 50 },
   { field: 'status', headerName: 'Status', width: 100,
-    // cellClassName: (params) => clsx('payment-status', { 
-    //   unpaid: params.value === "unpaid",
-    //   paid: params.value === "paid",
-    //   partial: params.value === "partial",
-    // }),
     renderCell: (params) => {
         switch (params.value) {
           case "unpaid" : return <Chip variant='outlined' label={params.row.status} color="error"/>;

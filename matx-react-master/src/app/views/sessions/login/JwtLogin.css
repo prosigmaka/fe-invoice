@@ -1,0 +1,41 @@
+
+    .bodyLogin {
+        background-color: rgb(53, 43, 100);
+    }
+
+    .buttonSignIn {
+        margin-top: 20px;
+        background-color: green; 
+        float: right;
+    }
+
+    .Container-mask {
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+
+    .password-mask {
+        width: 100%;
+    }
+
+    .password-toogle-icon {
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+        cursor: pointer;
+        border: none;
+        float: right;
+        background: linear-gradient(
+        90deg,
+        #13c931 0%,
+        rgb(13, 197, 71) 100%
+        );
+    }
+
+    .password-toogle-icon:hover {
+        background: linear-gradient(
+        90deg,
+        hsl(221, 85%, 56%) 10%,
+        rgb(62, 96, 206) 90%
+        );
+    }

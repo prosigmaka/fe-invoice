@@ -14,22 +14,15 @@ const columns = [
       partial: params.value === "partial",
     }),
     renderCell: (params) => {
-      return (
-        <Chip 
-          variant = "outlined"
-          label = {params.row.status}
-          // color = {{unpaid} === "unpaid" && "primary" ||
-          // {paid} === "paid" && "success" ||
-          // {partial} === "partial" && "warning"
-          // }
-          sx = {{
-              '{params.row.status} === "unpaid"': { color: "error" },
-              '{params.row.status} === "paid"':  { color:"primary" },
-              '{params.row.status} === "partial"': { color:"success" },
-          }}
-        />
-      );
-    }
+        switch (params.value) {
+          case "unpaid" : return <Chip variant='outlined' label={params.row.status} color="error"/>;
+          case "paid" : return <Chip variant='outlined' label={params.row.status} color="success"/>;
+          case "partial" : return <Chip variant='outlined' label={params.row.status} color="warning"/>;
+          case "late" : return <Chip variant='outlined' label={params.row.status} color="error"/>;
+          case "approve" : return <Chip variant='outlined' label={params.row.status} color="primary"/>;
+          // default: return <Chip variant='outlined' label={params.row.status} color="primary"/>;
+        }
+      }
   },
   { field: 'invoiceNum', headerName: 'Invoice', width: 130 },
   { field: 'clientName', headerName: 'Client', width: 130 },
@@ -38,7 +31,7 @@ const columns = [
   { field: 'amount', type:'currency', headerName: 'Amount', width: 120 },
   { field: 'description', headerName: 'Description', width: 150, },
   { field: 'detailInvoice', headerName: 'Detail', width: 80, 
-    renderCell: (params) => {
+    renderCell: () => {
       return (
         <InfoIcon />
       );
@@ -47,8 +40,10 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, status: 'unpaid', invoiceNum: 'PSM/01/22/X123', clientName:'Tiara', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
-  { id: 2, status: 'paid', invoiceNum: 'PSM/01/22/X123', clientName:'Jungkook', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' }
+  { id: 1, status: 'unpaid', invoiceNum: 'PSM/01/22/X123', clientName:'Jungkook', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
+  { id: 2, status: 'paid', invoiceNum: 'PSM/01/22/X123', clientName:'Taehyung', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
+  { id: 3, status: 'late', invoiceNum: 'PSM/01/22/X123', clientName:'Jimin', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
+  { id: 4, status: 'approve', invoiceNum: 'PSM/01/22/X123', clientName:'RM', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
 ];
 
 export default function InvoiceTable() {
@@ -59,6 +54,7 @@ export default function InvoiceTable() {
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        search
         checkboxSelection
       />
     </div>

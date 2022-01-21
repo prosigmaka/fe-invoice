@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Box, Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import clsx from 'clsx';
+import InfoIcon from '@mui/icons-material/Info';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -13,9 +14,6 @@ const columns = [
       partial: params.value === "partial",
     }),
     renderCell: (params) => {
-      // unpaid =  params.value === "unpaid",
-      // paid = params.value === "paid",
-      // partial = params.value === "partial"
       return (
         <Chip 
           variant = "outlined"
@@ -39,12 +37,18 @@ const columns = [
   { field: 'dueDate', headerName: 'Due Date', width: 120, align:'center' },
   { field: 'amount', type:'currency', headerName: 'Amount', width: 120 },
   { field: 'description', headerName: 'Description', width: 150, },
-  { field: 'detailInvoice', headerName: 'Detail', width: 80},
+  { field: 'detailInvoice', headerName: 'Detail', width: 80, 
+    renderCell: (params) => {
+      return (
+        <InfoIcon />
+      );
+    }
+  },
 ];
 
 const rows = [
-  { id: 1, status: 'unpaid', invoiceNum: 'PSM/01/22/X123', clientName:'Tiara', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'button' },
-  { id: 2, status: 'paid', invoiceNum: 'PSM/01/22/X123', clientName:'Jungkook', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'button' }
+  { id: 1, status: 'unpaid', invoiceNum: 'PSM/01/22/X123', clientName:'Tiara', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
+  { id: 2, status: 'paid', invoiceNum: 'PSM/01/22/X123', clientName:'Jungkook', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' }
 ];
 
 export default function InvoiceTable() {

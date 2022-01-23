@@ -1,12 +1,39 @@
 
+    
+    .card1 {
+        box-shadow: 10px 9px 25px -2px rgba(0,0,0,0.55) !important;
+        -webkit-box-shadow: 10px 9px 25px -2px rgba(0,0,0,0.55);
+        -moz-box-shadow: 10px 9px 25px -2px rgba(0,0,0,0.55);
+    }
+    
     .bodyLogin {
-        background-color: rgb(53, 43, 100);
+        background: linear-gradient(
+        -90deg,
+        #FF7F3F 25%,
+        #F05A28 75%
+        ); 
     }
 
     .buttonSignIn {
         margin-top: 20px;
-        background-color: green; 
+        background: linear-gradient(
+        90deg,
+        #E3670C 5%,
+        #FBB448 95%
+        ); 
         float: right;
+        color: rgb(20, 20, 20);
+    }
+
+    .buttonSignIn:hover {
+        background: linear-gradient(
+        90deg,
+        #FFEEE7 5%,
+        #FEFCDB 95%
+        );
+        box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
+        -webkit-box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
+        -moz-box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
     }
 
     .Container-mask {
@@ -27,15 +54,18 @@
         float: right;
         background: linear-gradient(
         90deg,
-        #13c931 0%,
-        rgb(13, 197, 71) 100%
+        #E3670C 5%,
+        #FBB448 95%
         );
     }
 
     .password-toogle-icon:hover {
         background: linear-gradient(
         90deg,
-        hsl(221, 85%, 56%) 10%,
-        rgb(62, 96, 206) 90%
+        #FFEEE7 5%,
+        #FEFCDB 95%
         );
+        box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
+        -webkit-box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
+        -moz-box-shadow: 1px 3px 6px 2px rgba(0,0,0,0.62);
     }

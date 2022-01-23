@@ -90,7 +90,7 @@ const JwtLogin = () => {
 
     return (
         <JWTRoot className="bodyLogin">
-            <Card className="card">
+            <Card className="card1">
                 <Grid container>
                     <Grid item lg={5} md={5} sm={5} xs={12}>
                         <JustifyBox p={4} height="100%">

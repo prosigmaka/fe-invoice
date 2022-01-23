@@ -2,6 +2,6 @@
 ## Read
 ```npm install ```
 
-```cd invoice-app ```
+```cd matx-react-master ```
 
 ```npm start ```

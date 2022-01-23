@@ -1,6 +1,7 @@
 import React from 'react'
 import SimpleTable from './SimpleTable'
 import PaginationTable from './PaginationTable'
+import InvoiceTable from './InvoiceTable'
 import { Breadcrumb, SimpleCard } from 'app/components'
 import { Box, styled } from '@mui/system'
 
@@ -32,8 +33,11 @@ const AppTable = () => {
                 <SimpleTable />
             </SimpleCard>
             <Box py="12px" /> */}
-            <SimpleCard title="Pagination Table">
+            {/* <SimpleCard title="Pagination Table">
                 <PaginationTable />
+            </SimpleCard> */}
+            <SimpleCard title="Invoice Table">
+                <InvoiceTable />
             </SimpleCard>
         </Container>
     )

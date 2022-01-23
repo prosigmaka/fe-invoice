@@ -7,9 +7,11 @@ import {
     TableCell,
     Icon,
     TablePagination,
+    Button
 } from '@mui/material';
 import React from 'react';
 import { Box, styled } from '@mui/system';
+import { Navigate } from 'react-router-dom';
 
 const StyledTable = styled(Table)(({ theme }) => ({
     whiteSpace: 'pre',
@@ -143,16 +145,13 @@ const PaginationTable = () => {
                                 <TableCell>{subscriber.status}</TableCell>
                                 <TableCell>${subscriber.amount}</TableCell>
                                 <TableCell>
-                                    <IconButton>
-                                        {/* <Button onClick=""> */}
-                                            <Icon color="error">close</Icon>
-                                        {/* </Button> */}
-                                    </IconButton>
-                                        {/* <Input accept="image/*" id="icon-button-file" type="file" />
-                                        <IconButton color="primary" aria-label="upload picture" component="span">
-                                        <PhotoCamera />
-                                        </IconButton> */}
-                                    
+                                    {/* <Navigate push to="/form"> */}
+                                        <IconButton>
+                                                {/* <Icon color="primary">close</Icon> */}
+                                                <Icon color="primary">info</Icon>
+                                            {/* <Navigate to="/form" /> */}
+                                        </IconButton>
+                                    {/* </Navigate> */}
                                 </TableCell>
                             </TableRow>
                         ))}

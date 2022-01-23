@@ -148,10 +148,10 @@ const PaginationTable = () => {
                                             <Icon color="error">close</Icon>
                                         {/* </Button> */}
                                     </IconButton>
-                                        <Input accept="image/*" id="icon-button-file" type="file" />
+                                        {/* <Input accept="image/*" id="icon-button-file" type="file" />
                                         <IconButton color="primary" aria-label="upload picture" component="span">
                                         <PhotoCamera />
-                                        </IconButton>
+                                        </IconButton> */}
                                     
                                 </TableCell>
                             </TableRow>

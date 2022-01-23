@@ -12,7 +12,18 @@ const userList = [
         username: 'admin123',
         email: 'admin.prosigmaka@gmail.com',
         avatar: '/assets/images/prosigmaka.png',
+        password: 'admin123',
         age: 25,
+    },
+    {
+        id: 2,
+        role: 'SA',
+        name: 'Imam Hilmi',
+        username: 'imamhilmi222',
+        email: 'imam.hilmi253@gmail.com',
+        avatar: '/assets/images/face-3.png',
+        password: 'hilmi253',
+        age: 22,
     },
 ]
 
@@ -25,12 +36,17 @@ Mock.onPost('/api/auth/login').reply(async (config) => {
     try {
         await new Promise((resolve) => setTimeout(resolve, 1000))
 
-        const { email } = JSON.parse(config.data)
+        const { email, password } = JSON.parse(config.data)
         const user = userList.find((u) => u.email === email)
+        const userPass = userList.find((u) => u.password === password)
 
         if (!user) {
             return [400, { message: 'Invalid email or password' }]
         }
+        if (!userPass) {
+            return [400, { message: 'Invalid email or password' }]
+        }
+
         const accessToken = jwt.sign({ userId: user.id }, JWT_SECRET, {
             expiresIn: JWT_VALIDITY,
         })
@@ -45,6 +61,7 @@ Mock.onPost('/api/auth/login').reply(async (config) => {
                     email: user.email,
                     name: user.name,
                     role: user.role,
+                    password: user.password,
                 },
             },
         ]
@@ -63,7 +80,7 @@ Mock.onPost('/api/auth/register').reply((config) => {
             return [400, { message: 'User already exists!' }]
         }
         const newUser = {
-            id: 2,
+            id: 3,
             role: 'GUEST',
             name: '',
             username: username,

@@ -7,9 +7,9 @@ import {
     TableCell,
     Icon,
     TablePagination,
-} from '@mui/material'
-import React from 'react'
-import { Box, styled } from '@mui/system'
+} from '@mui/material';
+import React from 'react';
+import { Box, styled } from '@mui/system';
 
 const StyledTable = styled(Table)(({ theme }) => ({
     whiteSpace: 'pre',
@@ -144,8 +144,15 @@ const PaginationTable = () => {
                                 <TableCell>${subscriber.amount}</TableCell>
                                 <TableCell>
                                     <IconButton>
-                                        <Icon color="error">close</Icon>
+                                        {/* <Button onClick=""> */}
+                                            <Icon color="error">close</Icon>
+                                        {/* </Button> */}
                                     </IconButton>
+                                        <Input accept="image/*" id="icon-button-file" type="file" />
+                                        <IconButton color="primary" aria-label="upload picture" component="span">
+                                        <PhotoCamera />
+                                        </IconButton>
+                                    
                                 </TableCell>
                             </TableRow>
                         ))}

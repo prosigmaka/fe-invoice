@@ -6,12 +6,14 @@ export const navigations = [
     },
     {
         name: 'Create',
-        path: '/material/form',
+        path: '/form',
+        // path: '/material/form',
         icon: 'add card',
     },
     {
         name: 'Invoices',
-        path: '/material/table',
+        path: '/invoice',
+        // path: '/material/table',
         icon: 'receipt',
     },
          

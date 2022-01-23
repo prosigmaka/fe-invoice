@@ -23,15 +23,15 @@ const AppTable = () => {
             <div className="breadcrumb">
                 <Breadcrumb
                     routeSegments={[
-                        { name: 'Material', path: '/material' },
-                        { name: 'Table' },
+                        // { name: 'Material', path: '/material' },
+                        { name: 'Invoice' },
                     ]}
                 />
             </div>
-            <SimpleCard title="Simple Table">
+            {/* <SimpleCard title="Simple Table">
                 <SimpleTable />
             </SimpleCard>
-            <Box py="12px" />
+            <Box py="12px" /> */}
             <SimpleCard title="Pagination Table">
                 <PaginationTable />
             </SimpleCard>

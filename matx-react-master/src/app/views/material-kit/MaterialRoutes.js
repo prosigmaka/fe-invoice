@@ -6,11 +6,13 @@ const AppForm = Loadable(lazy(() => import("./forms/AppForm")));
  
 const materialRoutes = [
     {
-        path: '/material/table',
+        path: '/invoice',
+        // path: '/material/table',
         element: <AppTable />,
     },
     {
-        path: '/material/form',
+        path: '/form',
+        // path: '/material/form',
         element: <AppForm />,
     },
      

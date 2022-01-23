@@ -11,7 +11,7 @@ const userList = [
         name: 'Admin Prosigmaka',
         username: 'admin123',
         email: 'admin.prosigmaka@gmail.com',
-        avatar: '/assets/images/face-1.png',
+        avatar: '/assets/images/prosigmaka.png',
         age: 25,
     },
 ]

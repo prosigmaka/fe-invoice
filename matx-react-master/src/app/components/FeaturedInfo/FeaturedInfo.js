@@ -6,7 +6,7 @@ const FeaturedInfo = () => {
     return (
         <>
             <div className="featured">
-                <div className="featuredItem">
+                <div className="featuredItem one">
                     <span className="featuredTitle">
                         Total Puchase Order
                     </span>
@@ -15,11 +15,11 @@ const FeaturedInfo = () => {
                             1.234
                         </span>
                         <span className="featuredNumberRate">
-                            +2.4% <ArrowUpward className="featuredIcon" /> 
+                            - 0.4% <ArrowDownward className="featuredIcon negative" /> 
                         </span>
                     </div>
                 </div>
-                <div className="featuredItem">
+                <div className="featuredItem two">
                     <span className="featuredTitle">
                         Unpaid Payment
                     </span>
@@ -28,11 +28,11 @@ const FeaturedInfo = () => {
                             15
                         </span>
                         <span className="featuredNumberRate">
-                            -5.1% <ArrowDownward className="featuredIcon negative" /> 
+                            + 1.1% <ArrowUpward className="featuredIcon" /> 
                         </span>
                     </div>
                 </div>
-                <div className="featuredItem">
+                <div className="featuredItem three">
                     <span className="featuredTitle">
                         Overdue Payment
                     </span>
@@ -47,7 +47,7 @@ const FeaturedInfo = () => {
                 </div>
             </div>
             <div className="featured">
-                <div className="featuredItem">
+                <div className="featuredItem four">
                     <span className="featuredTitle">
                         Payment Received
                     </span>
@@ -60,7 +60,7 @@ const FeaturedInfo = () => {
                         </span>
                     </div>
                 </div>
-                <div className="featuredItem">
+                <div className="featuredItem five">
                     <span className="featuredTitle">
                         Pending Amount
                     </span>
@@ -73,7 +73,7 @@ const FeaturedInfo = () => {
                         </span>
                     </div>
                 </div>
-                <div className="featuredItem">
+                <div className="featuredItem six">
                     <span className="featuredTitle">
                         Total Amount
                     </span>

@@ -54,8 +54,10 @@ const JwtLogin = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [userInfo, setUserInfo] = useState({
-        email: 'admin.prosigmaka@gmail.com',
-        password: 'admin123',
+        // email: 'admin.prosigmaka@gmail.com',
+        // password: 'admin123',
+        email: '',
+        password: '',
     })
     const [message, setMessage] = useState('')
     const { login } = useAuth()
@@ -113,7 +115,7 @@ const JwtLogin = () => {
                                     sx={{ mb: 3, width: '100%' }}
                                     variant="outlined"
                                     size="small"
-                                    label="Email"
+                                    label="Username"
                                     onChange={handleChange}
                                     type="email"
                                     name="email"

@@ -31,7 +31,7 @@ const Separator = styled('h4')(({ theme }) => ({
 
 const StyledIcon = styled(Icon)(() => ({
     marginLeft: 8,
-    marginBottom: '4px',
+    marginBottom: '1px',
     verticalAlign: 'middle',
 }))
 

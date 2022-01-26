@@ -3,6 +3,7 @@ import Chart from '../../components/Chart/Chart'
 import FeaturedInfo from '../../components/FeaturedInfo/FeaturedInfo'
 import "./Home.css"
 import { userData, userData2, userData3 } from "../../../fake-db/dummyData"
+import FilterButton from 'app/components/FilterButton/FilterButton'
 // import ChartWeek from 'app/components/Chart/ChartWeek'
 // import ChartMonth from 'app/components/Chart/ChartMonth'
 // import FeaturedInfoMonth from 'app/components/FeaturedInfo/FeaturedInfoMonth'
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <>
             <div className="home">
+                <FilterButton />
                 <FeaturedInfo />
                 <Chart data={userData} title="Purchase Order / Year Analytics" grid dataKey="active_order" />
                 {/* <ChartMonth data={userData2} title="Purchase Order / Month Analytics" grid dataKey="active_order" /> */}

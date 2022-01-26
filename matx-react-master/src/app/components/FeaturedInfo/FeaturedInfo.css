@@ -99,7 +99,9 @@
     }
 
     .featuredSub {
-        font-size: 18px;
-        color: gray;
+        font-size: 15px;
+        color: rgb(32, 32, 32);
+        display: flex;
+        justify-content: flex-end;
     }
 

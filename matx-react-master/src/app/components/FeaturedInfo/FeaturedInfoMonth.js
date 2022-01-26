@@ -2,7 +2,7 @@ import React from 'react'
 import "./FeaturedInfo.css"
 import { ArrowDownward, ArrowUpward } from '@mui/icons-material'
 
-const FeaturedInfo = () => {
+const FeaturedInfoMonth = () => {
     return (
         <>
             <div className="featured">
@@ -12,14 +12,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            1.234
+                            23
                         </span>
                         <span className="featuredNumberRate">
-                            - 0.4% <ArrowDownward className="featuredIcon negative" /> 
+                            + 2% <ArrowUpward className="featuredIcon" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This Month
                     </span>
                 </div>
                 <div className="featuredItem two">
@@ -28,14 +28,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            15
+                            2
                         </span>
                         <span className="featuredNumberRate">
-                            + 1.1% <ArrowUpward className="featuredIcon" /> 
+                            - 0.5% <ArrowDownward className="featuredIcon negative" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This Month
                     </span>
                 </div>
                 <div className="featuredItem three">
@@ -44,14 +44,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            29
+                            1
                         </span>
                         <span className="featuredNumberRate">
-                            + 4.6% <ArrowUpward className="featuredIcon" /> 
+                            - 1% <ArrowDownward className="featuredIcon negative" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This month
                     </span>
                 </div>
             </div>
@@ -62,14 +62,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            105
+                            18
                         </span>
                         <span className="featuredNumberRate">
-                            + 10.0% <ArrowUpward className="featuredIcon" /> 
+                            + 4.7% <ArrowUpward className="featuredIcon" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This month
                     </span>
                 </div>
                 <div className="featuredItem five">
@@ -78,14 +78,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            3
+                            2
                         </span>
                         <span className="featuredNumberRate">
-                            - 15.3% <ArrowDownward className="featuredIcon negative" /> 
+                            - 2.4% <ArrowDownward className="featuredIcon negative" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This month
                     </span>
                 </div>
                 <div className="featuredItem six">
@@ -94,14 +94,14 @@ const FeaturedInfo = () => {
                     </span>
                     <div className="featuredNumberContainer">
                         <span className="featuredNumber">
-                            108
+                            20
                         </span>
                         <span className="featuredNumberRate">
-                            - 2.9% <ArrowDownward className="featuredIcon negative" /> 
+                            + 3% <ArrowUpward className="featuredIcon" /> 
                         </span>
                     </div>
                     <span className="featuredSub">
-                        This Year
+                        This month
                     </span>
                 </div>
             </div>
@@ -109,4 +109,4 @@ const FeaturedInfo = () => {
     )
 }
 
-export default FeaturedInfo
+export default FeaturedInfoMonth

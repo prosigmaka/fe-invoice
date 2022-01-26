@@ -60,3 +60,65 @@ export const userData = [
       total_PO: 128,
     },
   ];
+
+
+export const userData2 = [
+  {
+    week: '1',
+    active_order: 6,
+    total_PO: 10,
+  },
+  {
+    week: '2',
+    active_order: 11,
+    total_PO: 15,
+  },
+  {
+    week: '3',
+    active_order: 13,
+    total_PO: 20,
+  },
+  {
+    week: '4',
+    active_order: 16,
+    total_PO: 25,
+  },
+];
+
+export const userData3 = [
+  {
+    days: 'mon',
+    active_order: 1,
+    total_PO: 3,
+  },
+  {
+    days: 'tue',
+    active_order: 3,
+    total_PO: 5,
+  },
+  {
+    days: 'wed',
+    active_order: 4,
+    total_PO: 5,
+  },
+  {
+    days: 'thu',
+    active_order: 4,
+    total_PO: 6,
+  },
+  {
+    days: 'fri',
+    active_order: 5,
+    total_PO: 8,
+  },
+  {
+    days: 'sat',
+    active_order: 6,
+    total_PO: 8,
+  },
+  {
+    days: 'sun',
+    active_order: 7,
+    total_PO: 8,
+  },
+];

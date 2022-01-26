@@ -17,7 +17,7 @@ const userList = [
     },
     {
         id: 2,
-        role: 'SA',
+        role: 'GUEST',
         name: 'Imam Hilmi',
         username: 'imamhilmi222',
         email: 'imam.hilmi253@gmail.com',

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paragraph } from 'app/components/Typography'
 import { Box, styled, useTheme } from '@mui/system'
 import {
     Card,
@@ -10,10 +9,11 @@ import {
     TableRow,
     TableCell,
     TableBody,
-    Avatar,
     MenuItem,
-    Select,
+    Select
 } from '@mui/material'
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { Link } from 'react-router-dom';
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -30,40 +30,44 @@ const Title = styled('span')(() => ({
     textTransform: 'capitalize',
 }))
 
-const ProductTable = styled(Table)(() => ({
+const DataTable = styled(Table)(() => ({
     minWidth: 400,
+    overflowX: 'auto',
+    position: 'static',
     whiteSpace: 'pre',
     '& small': {
         height: 15,
-        width: 50,
-        borderRadius: 500,
+        width: '20px',
+        padding: '5px 10px',
+        overflow: 'hidden',
+        background: 'transparent',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderRadius:'50px',
+        fontSize: '13px',
         boxShadow:
-            '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)',
+            '0 0 1px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24)',
     },
     '& td': {
         borderBottom: 'none',
     },
     '& td:first-of-type': {
-        paddingLeft: '16px !important',
+        // paddingLeft: '16px !important',
     },
 }))
 
 const Small = styled('small')(({ bgcolor }) => ({
-    height: 15,
-    width: 50,
-    color: '#fff',
-    padding: '2px 8px',
-    borderRadius: '4px',
-    overflow: 'hidden',
-    background: bgcolor,
-    boxShadow: '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)',
+    color: bgcolor,
+    borderColor: bgcolor,
 }))
 
 const TopSellingTable = () => {
     const { palette } = useTheme()
     const bgError = palette.error.main
     const bgPrimary = palette.primary.main
-    const bgSecondary = palette.secondary.main
+    // const bgSecondary = palette.secondary.main
+    const bgWarning = palette.warning.main
+    const bgSuccess = palette.success.main
 
     return (
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
@@ -74,116 +78,148 @@ const TopSellingTable = () => {
                     <MenuItem value="last_month">Last Month</MenuItem>
                 </Select>
             </CardHeader>
-            <Box overflow="auto">
-                <ProductTable>
+            <Box overflowX="auto">
+                <DataTable>
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{ px: 3 }} colSpan={4}>
-                                Name
+                            <TableCell colSpan={3} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Status
                             </TableCell>
-                            <TableCell sx={{ px: 0 }} colSpan={2}>
-                                Revenue
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14}}>
+                                Invoice
                             </TableCell>
-                            <TableCell sx={{ px: 0 }} colSpan={2}>
-                                Stock Status
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Client
                             </TableCell>
-                            <TableCell sx={{ px: 0 }} colSpan={1}>
-                                Action
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Invoice Date
+                            </TableCell>
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Due Date
+                            </TableCell>
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Amount
+                            </TableCell>
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Description
+                            </TableCell>
+                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
+                                Detail
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {productList.map((product, index) => (
+                        {dataList.map((data, index) => (
                             <TableRow key={index} hover>
-                                <TableCell
-                                    colSpan={4}
-                                    align="left"
-                                    sx={{ px: 0, textTransform: 'capitalize' }}
-                                >
-                                    <Box display="flex" alignItems="center">
-                                        <Avatar src={product.imgUrl} />
-                                        <Paragraph sx={{ m: 0, ml: 4 }}>
-                                            {product.name}
-                                        </Paragraph>
-                                    </Box>
+                                {/* Kolom status */}
+                                <TableCell colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
+                                    {
+                                        data.status === 'paid' ? ( 
+                                            <Small bgcolor={bgPrimary}>{data.status} </Small> ) :
+                                        data.status === 'late' ? (
+                                            <Small bgcolor={bgError}>{data.status}</Small> ) :
+                                        data.status === 'unpaid' ? (
+                                            <Small bgcolor={bgError}>{data.status}</Small> ) :
+                                        data.status === 'partial' ? (
+                                            <Small bgcolor={bgWarning}>{data.status}</Small> ) :
+                                        data.status === 'approve' ? (
+                                            <Small bgcolor={bgSuccess}>{data.status}</Small> ) :
+                                        (   <Small bgcolor={bgPrimary}>{data.status}</Small>)
+                                    }
                                 </TableCell>
-                                <TableCell
-                                    align="left"
+                                {/* Kolom invoice id */}
+                                <TableCell align="left" colSpan={2} sx={{ px: 0, textTransform: 'capitalize' }}>
+                                    {data.invoice}
+                                </TableCell>
+                                {/* Kolom nama client */}
+                                <TableCell colSpan={2} sx={{ px: 0 }} align="center">
+                                    {data.client}
+                                </TableCell>
+                                {/* Kolom invoice date */}
+                                <TableCell colSpan={2} sx={{ px: 0 }} align="center">
+                                    {data.invoiceDate}
+                                </TableCell>
+                                {/* Kolom due date */}
+                                <TableCell colSpan={2} sx={{ px: 0 }} align="center">
+                                    {data.dueDate}
+                                </TableCell>
+                                {/* Kolom amount */}
+                                <TableCell align="center"
                                     colSpan={2}
                                     sx={{ px: 0, textTransform: 'capitalize' }}
                                 >
-                                    $
-                                    {product.price > 999
-                                        ? (product.price / 1000).toFixed(1) +
-                                        'k'
-                                        : product.price}
+                                    Rp
+                                    {data.amount > 999
+                                        ? (data.amount / 1000000).toFixed(1) +
+                                        'jt'
+                                        : data.amount}
                                 </TableCell>
-
-                                <TableCell
-                                    sx={{ px: 0 }}
-                                    align="left"
-                                    colSpan={2}
-                                >
-                                    {product.available ? (
-                                        product.available < 20 ? (
-                                            <Small bgcolor={bgSecondary}>
-                                                {product.available} available
-                                            </Small>
-                                        ) : (
-                                            <Small bgcolor={bgPrimary}>
-                                                in stock
-                                            </Small>
-                                        )
-                                    ) : (
-                                        <Small bgcolor={bgError}>
-                                            out of stock
-                                        </Small>
-                                    )}
+                                {/* Kolom description */}
+                                <TableCell colSpan={2} sx={{ px: 0 }} align="center">
+                                    {data.description}
                                 </TableCell>
-                                <TableCell sx={{ px: 0 }} colSpan={1}>
-                                    <IconButton>
-                                        <Icon color="primary">edit</Icon>
-                                    </IconButton>
+                                {/* Kolom button edit */}
+                                <TableCell sx={{ px: 0 }} align="center" colSpan={2}>
+                                    <Link to={"/invoice/detail"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                        <IconButton>
+                                            <ReadMoreIcon color="primary" />
+                                        </IconButton>
+                                    </Link>
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
-                </ProductTable>
+                </DataTable>
             </Box>
         </Card>
     )
 }
 
-const productList = [
+const dataList = [
     {
-        imgUrl: '/assets/images/products/headphone-2.jpg',
-        name: 'earphone',
-        price: 100,
-        available: 15,
+        status: 'paid',
+        invoice: 'PSM/021/BCA/11',
+        client: 'Jungkook',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 12000000,
+        description: 'Berkas lengkap',
     },
     {
-        imgUrl: '/assets/images/products/headphone-3.jpg',
-        name: 'earphone',
-        price: 1500,
-        available: 30,
+        status: 'unpaid',
+        invoice: 'PSM/022/BCA/11',
+        client: 'Yoongi',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 12000000,
+        description: 'Berkas lengkap',
     },
     {
-        imgUrl: '/assets/images/products/iphone-2.jpg',
-        name: 'iPhone x',
-        price: 1900,
-        available: 35,
+        status: 'late',
+        invoice: 'PSM/023/BCA/11',
+        client: 'Taehyung',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 12000000,
+        description: 'Berkas lengkap',
     },
     {
-        imgUrl: '/assets/images/products/iphone-1.jpg',
-        name: 'iPhone x',
-        price: 100,
-        available: 0,
+        status: 'partial',
+        invoice: 'PSM/024/BCA/11',
+        client: 'Jimin',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 12000000,
+        description: 'Berkas lengkap',
     },
     {
-        imgUrl: '/assets/images/products/headphone-3.jpg',
-        name: 'Head phone',
-        price: 1190,
-        available: 5,
+        status: 'approve',
+        invoice: 'PSM/025/BCA/11',
+        client: 'Jin',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 12000000,
+        description: 'Berkas lengkap',
     },
 ]
 

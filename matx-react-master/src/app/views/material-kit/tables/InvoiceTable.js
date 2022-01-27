@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Box, Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
-import clsx from 'clsx';
 import InfoIcon from '@mui/icons-material/Info';
+// import { Container } from '@mui/material';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 50 },
@@ -24,7 +23,7 @@ const columns = [
   { field: 'dueDate', headerName: 'Due Date', width: 120, align:'center' },
   { field: 'amount', type:'currency', headerName: 'Amount', width: 100 },
   { field: 'description', headerName: 'Description', width: 150, },
-  { field: 'detailInvoice', headerName: 'Detail', width: 80, 
+  { field: 'detailInvoice', headerName: 'Detail', width: 80,
     renderCell: () => {
       return (
         <InfoIcon />
@@ -40,20 +39,23 @@ const rows = [
   { id: 4, status: 'approve', invoiceNum: 'PSM/01/22/X123', clientName:'RM', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
   { id: 5, status: 'partial', invoiceNum: 'PSM/01/22/X123', clientName:'Suga', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
   { id: 6, status: 'paid', invoiceNum: 'PSM/01/22/X123', clientName:'Jin', invoiceDate: '11/01/2022', dueDate: '03/05/2022', amount: 500000, description: 'belum ada berkas yang dilengkapi', detailInvoice:'' },
-  
 ];
 
 export default function InvoiceTable() {
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    // <Container>
+    <div style={{ height: 400, width: '100%'}}>
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        // overflowX={'auto'}
         search
         checkboxSelection
+        disableSelectionOnClick
       />
     </div>
+    // </Container>
   );
 }

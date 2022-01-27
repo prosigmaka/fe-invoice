@@ -4,9 +4,11 @@ import PaginationTable from './PaginationTable'
 import InvoiceTable from './InvoiceTable'
 import { Breadcrumb, SimpleCard } from 'app/components'
 import { Box, styled } from '@mui/system'
+import TopSellingTable from './../../dashboard/shared/TopSellingTable'
 
 const Container = styled('div')(({ theme }) => ({
     margin: '30px',
+    overflowX: 'auto',
     [theme.breakpoints.down('sm')]: {
         margin: '16px',
     },
@@ -36,9 +38,11 @@ const AppTable = () => {
             {/* <SimpleCard title="Pagination Table">
                 <PaginationTable />
             </SimpleCard> */}
-            <SimpleCard title="Invoice Table">
-                <InvoiceTable />
-            </SimpleCard>
+            {/* <SimpleCard title="Invoice Table"> */}
+            {/* <InvoiceTable />
+            <Box py="12px" /> */}
+            <TopSellingTable />
+            {/* </SimpleCard> */}
         </Container>
     )
 }

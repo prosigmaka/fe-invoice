@@ -50,7 +50,7 @@ const POForm = () => {
                         <TextField
                             label="PO No."
                             size="small"
-                            type="number"
+                            type="text"
                             name="PO No."
                             //onChange={handleChange}
                             //value={mobile || ''}

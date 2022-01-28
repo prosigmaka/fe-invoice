@@ -2,7 +2,6 @@ import React from 'react'
 import { Box, styled, useTheme } from '@mui/system'
 import {
     Card,
-    Icon,
     IconButton,
     Table,
     TableHead,
@@ -10,7 +9,8 @@ import {
     TableCell,
     TableBody,
     MenuItem,
-    Select
+    Select,
+    TablePagination,
 } from '@mui/material'
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
@@ -62,6 +62,18 @@ const Small = styled('small')(({ bgcolor }) => ({
 }))
 
 const TopSellingTable = () => {
+    const [rowsPerPage, setRowsPerPage] = React.useState(5)
+    const [page, setPage] = React.useState(0)
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage)
+    }
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value)
+        setPage(0)
+    }
+
     const { palette } = useTheme()
     const bgError = palette.error.main
     const bgPrimary = palette.primary.main
@@ -109,7 +121,12 @@ const TopSellingTable = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {dataList.map((data, index) => (
+                        {dataList
+                            .slice(
+                                page * rowsPerPage,
+                                page * rowsPerPage + rowsPerPage
+                            )
+                            .map((data, index) => (
                             <TableRow key={index} hover>
                                 {/* Kolom status */}
                                 <TableCell colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
@@ -170,6 +187,22 @@ const TopSellingTable = () => {
                         ))}
                     </TableBody>
                 </DataTable>
+                <TablePagination
+                    sx={{ px: 2 }}
+                    rowsPerPageOptions={[5, 10, 25]}
+                    component="div"
+                    count={dataList.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    backIconButtonProps={{
+                        'aria-label': 'Previous Page',
+                    }}
+                    nextIconButtonProps={{
+                        'aria-label': 'Next Page',
+                    }}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
             </Box>
         </Card>
     )
@@ -219,6 +252,15 @@ const dataList = [
         invoiceDate: '12/01/2022',
         dueDate: '12/12/2022',
         amount: 12000000,
+        description: 'Berkas lengkap',
+    },
+    {
+        status: 'late',
+        invoice: 'PSM/025/BCA/11',
+        client: 'RM',
+        invoiceDate: '12/01/2022',
+        dueDate: '12/12/2022',
+        amount: 19000000,
         description: 'Berkas lengkap',
     },
 ]

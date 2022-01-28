@@ -1,7 +1,7 @@
 import React from 'react'
 import { Breadcrumb } from 'app/components'
 import { styled } from '@mui/system'
-import TopSellingTable from './../../dashboard/shared/TopSellingTable'
+import PaginationTable from './PaginationTable'
 
 const Container = styled('div')(({ theme }) => ({
     margin: '30px',
@@ -24,11 +24,11 @@ const DetailPage = () => {
                 <Breadcrumb
                     routeSegments={[
                         { name: 'Invoice', path: '/invoice' },
-                        { name: 'Detail' },
+                        { name: 'Invoice detail' },
                     ]}
                 />
             </div>
-            <TopSellingTable />
+            <PaginationTable />
         </Container>
     )
 }

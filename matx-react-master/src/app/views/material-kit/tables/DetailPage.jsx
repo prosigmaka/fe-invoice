@@ -1,7 +1,8 @@
 import React from 'react'
 import { Breadcrumb } from 'app/components'
 import { styled } from '@mui/system'
-import PaginationTable from './PaginationTable'
+// import PaginationTable from './PaginationTable'
+import DetailTable2 from './DetailTable2'
 
 const Container = styled('div')(({ theme }) => ({
     margin: '30px',
@@ -28,7 +29,9 @@ const DetailPage = () => {
                     ]}
                 />
             </div>
-            <PaginationTable />
+            {/* <PaginationTable /> */}
+            {/* <DetailTable /> */}
+            <DetailTable2 />
         </Container>
     )
 }

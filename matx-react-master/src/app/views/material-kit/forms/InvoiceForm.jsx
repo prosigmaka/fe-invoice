@@ -48,14 +48,15 @@ const InvoiceForm = () => {
     const [pph, setPPH] = useState(0)
     const [total, setTotal] = useState(0)
     const [subTotal, setSubTotal] = useState(0)
-    const [invdate, setInvDate] = useState(0)
-    const [duedate, setDueDate] = useState(0)
-    const handleDueDateChange = (duedate) => {
-        setDueDate(duedate);
-      };
-    const handleInvDateChange = (invdate) => {
-        setInvDate(invdate);
-      };
+    const [state, setState] = useState({
+        date: new Date(),
+    })
+    const {
+        date,
+    } = state
+    const handleDateChange = (date) => {
+        setState({ ...state, date })
+    }
     const handleChange =(index, e) => {
         const values = [...invoiceData.items]
         values[index][e.target.name] = e.target.value
@@ -129,8 +130,9 @@ const InvoiceForm = () => {
                         <Box py="5px" />
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
-                                value={duedate}
-                                onChange={handleDueDateChange}
+                                minDate={date}
+                                value={date}
+                                onChange={handleDateChange}
                                 renderInput={(props) => (
                                     <TextField
                                         {...props}
@@ -149,8 +151,8 @@ const InvoiceForm = () => {
                         <Box py="5px" />
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
-                                value={invdate}
-                                onChange={handleInvDateChange}
+                                value={date}
+                                onChange={handleDateChange}
                                 renderInput={(props) => (
                                     <TextField
                                         {...props}

@@ -14,6 +14,17 @@ import {
 } from '@mui/material'
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQ4MTk5NjQsInVzZXJfaWQiOjJ9.JpFiamwIFz-Fq_aXUTWYrw8mykYOT2tUpThAvd_kczE';
+const apiUrl = 'localhost:3002/v1/invoice';
+
+const authAxios = axios.create({
+    baseURL: apiUrl,
+    headers: {
+        Authorization:`Bearer ${accessToken}`
+    }
+})
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -64,6 +75,27 @@ const Small = styled('small')(({ bgcolor }) => ({
 const TopSellingTable = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(5)
     const [page, setPage] = React.useState(0)
+    // const [dataList, setDataList] = useState([]);
+    // const [requestError, setRequestError] = useState();
+    
+    // SKIP BENTAR, URUS YG LOGIN DULU
+    // const [content, setContent] = React.useState();
+
+    // const fetchData = async () => {
+    //     const { data } = await axios.get(
+    //       `${API_URL}movie/${id}?api_key=${API_KEY}&language=en-US`
+    //     );
+    //     setContent(data);
+    // };
+
+    // const fetchData = useCallback(async () => {
+    //     try {
+    //         const result = await authAxios.get(`/v1/invoice`);
+    //         setDataList(result.data);
+    //     } catch (err) {
+    //         setRequestError(err.message);
+    //     }
+    // })
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage)

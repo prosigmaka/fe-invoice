@@ -30,10 +30,6 @@ const ContentBox = styled(Box)(() => ({
     background: 'rgba(0, 0, 0, 0.01)',
 }))
 
-const IMG = styled('img')(() => ({
-    width: '100%',
-}))
-
 const JWTRoot = styled(JustifyBox)(() => ({
     background: '#1A2038',
     minHeight: '100% !important',
@@ -96,10 +92,6 @@ const JwtLogin = () => {
                 <Grid container>
                     <Grid item lg={5} md={5} sm={5} xs={12}>
                         <JustifyBox p={4} height="100%">
-                            {/* <IMG
-                                src="/assets/images/illustrations/dreamer.svg"
-                                alt=""
-                            /> */}
                             <Player
                                 autoplay
                                 loop

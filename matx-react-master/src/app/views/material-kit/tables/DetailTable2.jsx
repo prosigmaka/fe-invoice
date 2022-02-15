@@ -101,9 +101,9 @@ const DetailTable2 = () => {
 
     return(
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
-            <CardHeader>
+          <CardHeader>
             <Title>PSM/09012022/XTI/22</Title>
-                <FormControl>
+              <FormControl>
                 <InputLabel id="demo-simple-select-label">Payment Status</InputLabel>
                 <Select size="small" defaultValue="status_unpaid" label="Payment Status">
                     <MenuItem value="status_unpaid" onClick={handleClick}>
@@ -122,8 +122,8 @@ const DetailTable2 = () => {
                             <Status textcolor={bgSuccess}>Approve</Status>
                     </MenuItem>
                 </Select>
-                </FormControl>
-            </CardHeader>
+              </FormControl>
+          </CardHeader>
             <Box overflowX="auto">
                 <UploadArea>
                     <Button 
@@ -136,6 +136,20 @@ const DetailTable2 = () => {
                         <Icon classname="icon" sx={{marginRight:'10%'}}>file_upload</Icon>
                         Upload File
                     </Button>
+                    {/* <Button 
+                        color="secondary" 
+                        variant="contained" 
+                        type="submit" 
+                        className='btn'
+                        onClick={handleUpload}
+                    > Generate invoice</Button>
+                    <Button 
+                        color="secondary" 
+                        variant="contained" 
+                        type="submit" 
+                        className='btn'
+                        onClick={handleUpload}
+                    > Generate Receipt</Button> */}
                 </UploadArea>
                 <TableArea>
                 `   < SimpleTable/>

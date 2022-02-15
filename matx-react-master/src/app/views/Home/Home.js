@@ -58,7 +58,7 @@ const Home = () => {
                     ))}
                 </ul>
                 <div className="chart">
-                        <><h3 className="chartTitle">
+                        <h3 className="chartTitle">
                             Purchase Order Analytics
                         </h3><ResponsiveContainer width="100%" aspect={4 / 1}>
                                 <LineChart data={data}>
@@ -68,7 +68,7 @@ const Home = () => {
                                     <Tooltip />
                                     {data.grid && <CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5" />}
                                 </LineChart>
-                            </ResponsiveContainer></>
+                            </ResponsiveContainer>
                 </div>
             </div>
         </>

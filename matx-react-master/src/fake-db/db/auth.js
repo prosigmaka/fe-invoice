@@ -57,7 +57,7 @@ Mock.onPost('/api/auth/login').reply(async (config) => {
                 accessToken,
                 user: {
                     id: user.id,
-                    // avatar: user.avatar,
+                    avatar: user.avatar,
                     email: user.email,
                     name: user.name,
                     role: user.role,

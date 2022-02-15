@@ -24,7 +24,7 @@
         z-index: 222;
     }
 
-    .featuredItem.one {
+    /* .featuredItem.one {
         background: linear-gradient(
         180deg,
         #95CD41 15%,
@@ -70,7 +70,7 @@
         #D47AE8 15%,
         #F4BEEE 85%
         ); 
-    }
+    } */
 
     .featuredTitle {
         font-size: 21px;

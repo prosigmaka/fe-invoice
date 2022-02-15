@@ -25,15 +25,15 @@ const StyledTable = styled(Table)(({ theme }) => ({
         '& tr': {
             '& td': {
                 paddingLeft: 0,
-                textTransform: 'capitalize',
+                // textTransform: 'capitalize',
             },
         },
     },
 }))
 
 const ActionBox = styled('div')(() => ({
-    paddingLeft: '24px',
-    paddingRight: '24px',
+    paddingLeft: '40%',
+    paddingRight: '60%',
     // marginBottom: '12px',
     display: 'flex',
     alignItems: 'center',
@@ -47,24 +47,24 @@ const subscribarList = [
     },
     {
         namefile: 'Kwitansi.pdf',
-        date: '1 january, 2019',
+        date: '1 january, 2022',
     },
     {
         namefile: 'Faktur.pdf',
-        date: '8 january, 2019',
+        date: '8 january, 2022',
     },
     {
         namefile: 'DesainProduct.jpg',
-        date: '12 january, 2019',
+        date: '12 january, 2022',
         amount: 89000,
     },
     {
         namefile: 'DataClient.pdf',
-        date: '12 january, 2019',
+        date: '12 january, 2022',
     },
     {
         namefile: 'AdditionalFeature.pdf',
-        date: '12 january, 2019',
+        date: '12 january, 2022',
     },
 ]
 
@@ -91,11 +91,11 @@ const SimpleTable = () => {
                             <TableCell align="center">
                               <ActionBox>
                                 {/* /form/id */}
-                                <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                {/* <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                     <IconButton>
                                         <Icon color="primary">mode_edit</Icon>
                                     </IconButton>
-                                </Link>
+                                </Link> */}
                                 <Link to={"/invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                     <IconButton>
                                         <Icon color="primary">download</Icon>

@@ -64,22 +64,22 @@ export const userData = [
 
 export const userData2 = [
   {
-    week: '1',
+    month: 'Week 1',
     active_order: 6,
     total_PO: 10,
   },
   {
-    week: '2',
+    month: 'Week 2',
     active_order: 11,
     total_PO: 15,
   },
   {
-    week: '3',
+    month: 'Week 3',
     active_order: 13,
     total_PO: 20,
   },
   {
-    week: '4',
+    month: 'Week 4',
     active_order: 16,
     total_PO: 25,
   },
@@ -87,37 +87,37 @@ export const userData2 = [
 
 export const userData3 = [
   {
-    days: 'mon',
+    month: 'mon',
     active_order: 1,
     total_PO: 3,
   },
   {
-    days: 'tue',
+    month: 'tue',
     active_order: 3,
     total_PO: 5,
   },
   {
-    days: 'wed',
+    month: 'wed',
     active_order: 4,
     total_PO: 5,
   },
   {
-    days: 'thu',
+    month: 'thu',
     active_order: 4,
     total_PO: 6,
   },
   {
-    days: 'fri',
+    month: 'fri',
     active_order: 5,
     total_PO: 8,
   },
   {
-    days: 'sat',
+    month: 'sat',
     active_order: 6,
     total_PO: 8,
   },
   {
-    days: 'sun',
+    month: 'sun',
     active_order: 7,
     total_PO: 8,
   },

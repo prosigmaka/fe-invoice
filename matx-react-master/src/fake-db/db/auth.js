@@ -41,10 +41,10 @@ Mock.onPost('/api/auth/login').reply(async (config) => {
         const userPass = userList.find((u) => u.password === password)
 
         if (!user) {
-            return [400, { message: 'Invalid email or password' }]
+            return [400, { message: 'Invalid email' }]
         }
         if (!userPass) {
-            return [400, { message: 'Invalid email or password' }]
+            return [400, { message: 'Invalid password' }]
         }
 
         const accessToken = jwt.sign({ userId: user.id }, JWT_SECRET, {
@@ -57,7 +57,7 @@ Mock.onPost('/api/auth/login').reply(async (config) => {
                 accessToken,
                 user: {
                     id: user.id,
-                    avatar: user.avatar,
+                    // avatar: user.avatar,
                     email: user.email,
                     name: user.name,
                     role: user.role,

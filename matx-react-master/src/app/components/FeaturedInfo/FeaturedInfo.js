@@ -15,7 +15,8 @@ const FeaturedInfo = () => {
                             1.234
                         </span>
                         <span className="featuredNumberRate">
-                            - 0.4% <ArrowDownward className="featuredIcon negative" /> 
+                            - 0.4%  
+                            {/* - 0.4% <ArrowDownward className="featuredIcon negative" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">
@@ -31,7 +32,8 @@ const FeaturedInfo = () => {
                             15
                         </span>
                         <span className="featuredNumberRate">
-                            + 1.1% <ArrowUpward className="featuredIcon" /> 
+                            + 1.1% 
+                            {/* + 1.1% <ArrowUpward className="featuredIcon" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">
@@ -47,7 +49,8 @@ const FeaturedInfo = () => {
                             29
                         </span>
                         <span className="featuredNumberRate">
-                            + 4.6% <ArrowUpward className="featuredIcon" /> 
+                            + 4.6%  
+                            {/* + 4.6% <ArrowUpward className="featuredIcon" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">
@@ -65,7 +68,8 @@ const FeaturedInfo = () => {
                             105
                         </span>
                         <span className="featuredNumberRate">
-                            + 10.0% <ArrowUpward className="featuredIcon" /> 
+                            + 10.0% 
+                            {/* + 10.0% <ArrowUpward className="featuredIcon" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">
@@ -81,7 +85,8 @@ const FeaturedInfo = () => {
                             3
                         </span>
                         <span className="featuredNumberRate">
-                            - 15.3% <ArrowDownward className="featuredIcon negative" /> 
+                            - 15.3% 
+                            {/* - 15.3% <ArrowDownward className="featuredIcon negative" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">
@@ -97,7 +102,8 @@ const FeaturedInfo = () => {
                             108
                         </span>
                         <span className="featuredNumberRate">
-                            - 2.9% <ArrowDownward className="featuredIcon negative" /> 
+                            - 2.9% 
+                            {/* - 2.9% <ArrowDownward className="featuredIcon negative" />  */}
                         </span>
                     </div>
                     <span className="featuredSub">

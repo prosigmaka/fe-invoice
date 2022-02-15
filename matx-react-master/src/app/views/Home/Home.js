@@ -13,8 +13,8 @@ const Home = () => {
     return (
         <>
             <div className="home">
-                <FilterButton />
                 <FeaturedInfo />
+                <FilterButton />
                 <Chart data={userData} title="Purchase Order / Year Analytics" grid dataKey="active_order" />
                 {/* <ChartMonth data={userData2} title="Purchase Order / Month Analytics" grid dataKey="active_order" /> */}
                 {/* <ChartWeek data={userData3} title="Purchase Order / Week Analytics" grid dataKey="active_order" /> */}

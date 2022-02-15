@@ -12,7 +12,7 @@ const BreadcrumbRoot = styled('div')(() => ({
 const BreadcrumbName = styled('h4')(() => ({
     margin: 0,
     fontSize: '16px',
-    paddingBottom: '1px',
+    // paddingBottom: '1px',
     verticalAlign: 'middle',
     textTransform: 'capitalize',
 }))
@@ -25,7 +25,7 @@ const SubName = styled('span')(({ theme }) => ({
 const Separator = styled('h4')(({ theme }) => ({
     margin: 0,
     marginLeft: 8,
-    paddingBottom: '3px',
+    // paddingBottom: '3px',
     color: theme.palette.text.hint
 }))
 

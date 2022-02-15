@@ -141,7 +141,7 @@ const DetailTable2 = () => {
             </Snackbar>
             <DropzoneDialog
                     open={upload}
-                    acceptedFiles={['file/pdf', 'image/png', 'image/jpg']}
+                    acceptedFiles={['application/pdf', 'image/png', 'image/jpg']}
                     showPreviews={true}
                     maxFileSize={5000000}
                     onClose={uploadClose}

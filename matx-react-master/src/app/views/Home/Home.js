@@ -4,12 +4,6 @@ import "./Home.css"
 import { userData, userData2, userData3 } from "../../../fake-db/dummyData"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import ChartList from 'app/components/Chart/ChartList'
-// import Chart from '../../components/Chart/Chart'
-// import FilterButton from 'app/components/FilterButton/FilterButton'
-// import ChartWeek from 'app/components/Chart/ChartWeek'
-// import ChartMonth from 'app/components/Chart/ChartMonth'
-// import FeaturedInfoMonth from 'app/components/FeaturedInfo/FeaturedInfoMonth'
-// import FeaturedInfoWeek from 'app/components/FeaturedInfo/FeaturedInfoWeek'
 
 const Home = () => {
     const [selected, setSelected] = useState("week");
@@ -64,7 +58,6 @@ const Home = () => {
                     ))}
                 </ul>
                 <div className="chart">
-                    {/* {data.map((d) => ( */}
                         <><h3 className="chartTitle">
                             Purchase Order Analytics
                         </h3><ResponsiveContainer width="100%" aspect={4 / 1}>
@@ -76,9 +69,7 @@ const Home = () => {
                                     {data.grid && <CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5" />}
                                 </LineChart>
                             </ResponsiveContainer></>
-                    {/* ))} */}
                 </div>
-                {/* <Chart data={userData} title="Purchase Order Analytics" grid dataKey="active_order" /> */}
             </div>
         </>
     )

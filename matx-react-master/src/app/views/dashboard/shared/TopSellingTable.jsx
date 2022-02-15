@@ -16,15 +16,15 @@ import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQ4MTk5NjQsInVzZXJfaWQiOjJ9.JpFiamwIFz-Fq_aXUTWYrw8mykYOT2tUpThAvd_kczE';
-const apiUrl = 'localhost:3002/v1/invoice';
+// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQ4MTk5NjQsInVzZXJfaWQiOjJ9.JpFiamwIFz-Fq_aXUTWYrw8mykYOT2tUpThAvd_kczE';
+// const apiUrl = 'localhost:3002/v1/invoice';
 
-const authAxios = axios.create({
-    baseURL: apiUrl,
-    headers: {
-        Authorization:`Bearer ${accessToken}`
-    }
-})
+// const authAxios = axios.create({
+//     baseURL: apiUrl,
+//     headers: {
+//         Authorization:`Bearer ${accessToken}`
+//     }
+// })
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',

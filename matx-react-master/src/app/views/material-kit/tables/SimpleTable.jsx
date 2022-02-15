@@ -31,6 +31,15 @@ const StyledTable = styled(Table)(({ theme }) => ({
     },
 }))
 
+const ActionBox = styled('div')(() => ({
+    paddingLeft: '24px',
+    paddingRight: '24px',
+    // marginBottom: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+}))
+
 const subscribarList = [
     {
         namefile: 'Invoice.pdf',
@@ -80,18 +89,24 @@ const SimpleTable = () => {
                                 {subscriber.date}
                             </TableCell>
                             <TableCell align="center">
+                              <ActionBox>
                                 {/* /form/id */}
                                 <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                     <IconButton>
                                         <Icon color="primary">mode_edit</Icon>
                                     </IconButton>
                                 </Link>
-                                <IconButton>
-                                    <Icon color="primary">download</Icon>
-                                </IconButton>
-                                <IconButton>
-                                    <Icon color="error">close</Icon>
-                                </IconButton>
+                                <Link to={"/invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                    <IconButton>
+                                        <Icon color="primary">download</Icon>
+                                    </IconButton>
+                                </Link>
+                                <Link to={"/invoice"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                    <IconButton>
+                                        <Icon color="error">close</Icon>
+                                    </IconButton>
+                                </Link>
+                              </ActionBox>
                             </TableCell>
                         </TableRow>
                     ))}

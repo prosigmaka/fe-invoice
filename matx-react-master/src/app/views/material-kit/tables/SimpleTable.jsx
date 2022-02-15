@@ -9,6 +9,7 @@ import {
     TableRow,
 } from '@mui/material'
 import { Box, styled } from '@mui/system'
+import { Link } from 'react-router-dom';
 
 const StyledTable = styled(Table)(({ theme }) => ({
     whiteSpace: 'pre',
@@ -32,46 +33,29 @@ const StyledTable = styled(Table)(({ theme }) => ({
 
 const subscribarList = [
     {
-        name: 'john doe',
-        date: '18 january, 2019',
-        amount: 1000,
-        status: 'close',
-        company: 'ABC Fintech LTD.',
+        namefile: 'Invoice.pdf',
+        date: '1 January, 2022',
     },
     {
-        name: 'kessy bryan',
-        date: '10 january, 2019',
-        amount: 9000,
-        status: 'open',
-        company: 'My Fintech LTD.',
+        namefile: 'Kwitansi.pdf',
+        date: '1 january, 2019',
     },
     {
-        name: 'james cassegne',
+        namefile: 'Faktur.pdf',
         date: '8 january, 2019',
-        amount: 5000,
-        status: 'close',
-        company: 'Collboy Tech LTD.',
     },
     {
-        name: 'lucy brown',
-        date: '1 january, 2019',
+        namefile: 'DesainProduct.jpg',
+        date: '12 january, 2019',
         amount: 89000,
-        status: 'open',
-        company: 'ABC Fintech LTD.',
     },
     {
-        name: 'lucy brown',
-        date: '1 january, 2019',
-        amount: 89000,
-        status: 'open',
-        company: 'ABC Fintech LTD.',
+        namefile: 'DataClient.pdf',
+        date: '12 january, 2019',
     },
     {
-        name: 'lucy brown',
-        date: '1 january, 2019',
-        amount: 89000,
-        status: 'open',
-        company: 'ABC Fintech LTD.',
+        namefile: 'AdditionalFeature.pdf',
+        date: '12 january, 2019',
     },
 ]
 
@@ -81,29 +65,30 @@ const SimpleTable = () => {
             <StyledTable>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Company</TableCell>
-                        <TableCell>Start Date</TableCell>
-                        <TableCell>Status</TableCell>
-                        <TableCell>Amount</TableCell>
-                        <TableCell>Action</TableCell>
+                        <TableCell align="center">File Name</TableCell>
+                        <TableCell align="center">Upload Time</TableCell>
+                        <TableCell align="center">Action</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {subscribarList.map((subscriber, index) => (
                         <TableRow key={index}>
-                            <TableCell align="left">
-                                {subscriber.name}
+                            <TableCell align="center">
+                                {subscriber.namefile}
                             </TableCell>
-                            <TableCell align="left">
-                                {subscriber.company}
-                            </TableCell>
-                            <TableCell align="left">
+                            <TableCell align="center">
                                 {subscriber.date}
                             </TableCell>
-                            <TableCell>{subscriber.status}</TableCell>
-                            <TableCell>${subscriber.amount}</TableCell>
-                            <TableCell>
+                            <TableCell align="center">
+                                {/* /form/id */}
+                                <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                    <IconButton>
+                                        <Icon color="primary">mode_edit</Icon>
+                                    </IconButton>
+                                </Link>
+                                <IconButton>
+                                    <Icon color="primary">download</Icon>
+                                </IconButton>
                                 <IconButton>
                                     <Icon color="error">close</Icon>
                                 </IconButton>

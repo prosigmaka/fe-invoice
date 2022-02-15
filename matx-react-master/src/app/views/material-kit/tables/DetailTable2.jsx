@@ -4,20 +4,15 @@ import {
     Card,
     Button,
     Icon,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
     Alert,
     Snackbar,
     MenuItem,
-    Select,Fab,
-    TablePagination,
+    Select,
     InputLabel,
     FormControl,
 } from '@mui/material'
 import {DropzoneDialog} from 'material-ui-dropzone'
+import SimpleTable from './SimpleTable'
 
 
 const CardHeader = styled('div')(() => ({
@@ -52,6 +47,19 @@ const UploadArea = styled('div')(() => ({
     paddingLeft: '24px',
     paddingRight: '24px',
     marginBottom: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    '& .btn': { 
+        padding:'8px',
+        width:'9rem',
+        borderRadius:'50px',
+     },
+}))
+
+const TableArea = styled('div')(() => ({
+    paddingLeft: '24px',
+    paddingRight: '24px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -129,6 +137,9 @@ const DetailTable2 = () => {
                         Upload File
                     </Button>
                 </UploadArea>
+                <TableArea>
+                `   < SimpleTable/>
+                </TableArea>
             <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
                 <Alert
                     onClose={handleClose}

@@ -4,6 +4,7 @@ import {
     Card,
     Button,
     Icon,
+    IconButton,
     Alert,
     Snackbar,
     MenuItem,
@@ -13,6 +14,7 @@ import {
 } from '@mui/material'
 import {DropzoneDialog} from 'material-ui-dropzone'
 import SimpleTable from './SimpleTable'
+import { Link } from 'react-router-dom';
 
 
 const CardHeader = styled('div')(() => ({
@@ -44,9 +46,15 @@ const Status = styled('h3')(({ textcolor }) => ({
 }))
 
 const UploadArea = styled('div')(() => ({
-    paddingLeft: '24px',
-    paddingRight: '24px',
+    padding: '10px',
+    // paddingRight: '2px',
+    marginLeft: '24px',
+    marginRight: '24px',
     marginBottom: '12px',
+    borderStyle: 'solid',
+    borderWidth:'1px',
+    borderColor:'#C0C0C0',
+    borderRadius:'5px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -54,6 +62,18 @@ const UploadArea = styled('div')(() => ({
         padding:'8px',
         width:'9rem',
         borderRadius:'50px',
+        marginRight: '200px',
+     },
+    '& .btn-v2': { 
+        display: 'block',
+        width:'4rem',
+        borderStyle:'solid',
+        borderWidth:'1px',
+        fontSize:'11px',
+        fontWeight:'600',
+        borderRadius:'4px',
+        height:'4rem',
+        marginLeft: '20px',
      },
 }))
 
@@ -68,6 +88,12 @@ const TableArea = styled('div')(() => ({
         width:'9rem',
         borderRadius:'50px',
      },
+}))
+
+const SmallText = styled('h5')(()=> ({
+    marginTop:'1px',
+    fontSize:'11px',
+    fontWeight:'300',
 }))
 
 
@@ -126,6 +152,7 @@ const DetailTable2 = () => {
           </CardHeader>
             <Box overflowX="auto">
                 <UploadArea>
+
                     <Button 
                         color="primary" 
                         variant="contained" 
@@ -136,20 +163,37 @@ const DetailTable2 = () => {
                         <Icon classname="icon" sx={{marginRight:'10%'}}>file_upload</Icon>
                         Upload File
                     </Button>
-                    {/* <Button 
-                        color="secondary" 
+                
+                    <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                        <IconButton 
+                            color="info" 
+                            variant="contained" 
+                            type="submit" 
+                            className='btn-v2'
+                        >
+                            <Icon classname="icon">edit</Icon>
+                            <SmallText>Edit Invoice</SmallText>
+                        </IconButton>
+                    </Link>
+
+                    <IconButton 
+                        color="info" 
                         variant="contained" 
                         type="submit" 
-                        className='btn'
-                        onClick={handleUpload}
-                    > Generate invoice</Button>
-                    <Button 
-                        color="secondary" 
+                        className='btn-v2'
+                    > 
+                        <Icon classname="icon">present_to_all</Icon>
+                        <SmallText>Generate Invoice</SmallText>
+                    </IconButton>
+                    <IconButton 
+                        color="info" 
                         variant="contained" 
                         type="submit" 
-                        className='btn'
-                        onClick={handleUpload}
-                    > Generate Receipt</Button> */}
+                        className='btn-v2'
+                    > 
+                        <Icon classname="icon">present_to_all</Icon>
+                        <SmallText>Generate Receipt</SmallText>
+                    </IconButton>
                 </UploadArea>
                 <TableArea>
                 `   < SimpleTable/>

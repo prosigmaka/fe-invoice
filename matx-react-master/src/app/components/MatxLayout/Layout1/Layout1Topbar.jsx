@@ -150,13 +150,14 @@ const Layout1Topbar = () => {
                             <UserMenu>
                                 <Hidden xsDown>
                                     <Span>
-                                        Hi <strong>{user.name}</strong>
+                                        Hi <strong>{user}</strong>
                                     </Span>
                                 </Hidden>
-                                <Avatar
+                                {/* <Avatar
                                     src={user.avatar}
+                                    //ini src nya pake image yang disimpen di asset aja (?)
                                     sx={{ cursor: 'pointer' }}
-                                />
+                                /> */}
                             </UserMenu>
                         }
                     >

@@ -75,27 +75,6 @@ const Small = styled('small')(({ bgcolor }) => ({
 const TopSellingTable = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(5)
     const [page, setPage] = React.useState(0)
-    // const [dataList, setDataList] = useState([]);
-    // const [requestError, setRequestError] = useState();
-    
-    // SKIP BENTAR, URUS YG LOGIN DULU
-    // const [content, setContent] = React.useState();
-
-    // const fetchData = async () => {
-    //     const { data } = await axios.get(
-    //       `${API_URL}movie/${id}?api_key=${API_KEY}&language=en-US`
-    //     );
-    //     setContent(data);
-    // };
-
-    // const fetchData = useCallback(async () => {
-    //     try {
-    //         const result = await authAxios.get(`/v1/invoice`);
-    //         setDataList(result.data);
-    //     } catch (err) {
-    //         setRequestError(err.message);
-    //     }
-    // })
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage)

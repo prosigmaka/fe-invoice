@@ -4,7 +4,7 @@ import {
     Box
 } from '@mui/material'
 import { styled } from '@mui/system'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
@@ -17,7 +17,7 @@ const TextField = styled(TextValidator)(() => ({
 
 const POForm = () => {
     const [state, setState] = useState({
-        date: new Date(),
+        po_date: new Date(),
     })
 
     const handleSubmit = (event) => {
@@ -38,7 +38,7 @@ const POForm = () => {
     }
 
     const {
-        date,
+        po_date, po_number, ordered_by, accepted_by, recipent_position, po_fob, po_ship, po_via, po_ref,
     } = state
 
     return (
@@ -52,8 +52,8 @@ const POForm = () => {
                             size="small"
                             type="text"
                             name="PO No."
-                            //onChange={handleChange}
-                            //value={mobile || ''}
+                            onChange={handleChange}
+                            value={po_number}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -62,7 +62,7 @@ const POForm = () => {
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 size="small"
-                                value={date}
+                                value={po_date}
                                 onChange={handleDateChange}
                                 renderInput={(props) => (
                                     <TextField
@@ -81,8 +81,8 @@ const POForm = () => {
                             label="Ordered by"
                             type="text"
                             name="Ordered by"
-                            // onChange={handleChange}
-                            // value={firstName || ''}
+                            onChange={handleChange}
+                            value={ordered_by}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         /> 
@@ -92,8 +92,8 @@ const POForm = () => {
                             label="Ordered by"
                             type="text"
                             name="Ordered by"
-                            // onChange={handleChange}
-                            // value={firstName || ''}
+                            onChange={handleChange}
+                            value={accepted_by}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />                     
@@ -103,8 +103,8 @@ const POForm = () => {
                             label="Recipent Position"
                             type="text"
                             name="Position"
-                            // onChange={handleChange}
-                            // value={firstName || ''}
+                            onChange={handleChange}
+                            value={recipent_position}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -117,8 +117,8 @@ const POForm = () => {
                             label="FOB"
                             type="text"
                             name="FOB"
-                            // onChange={handleChange}
-                            // value={mobile || ''}
+                            onChange={handleChange}
+                            value={po_fob}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -128,8 +128,8 @@ const POForm = () => {
                             label="Ship"
                             type="text"
                             name="Ship"
-                            // onChange={handleChange}
-                            // value={mobile || ''}
+                            onChange={handleChange}
+                            value={po_ship}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -139,8 +139,8 @@ const POForm = () => {
                             label="Via"
                             type="text"
                             name="Via"
-                            // onChange={handleChange}
-                            // value={mobile || ''}
+                            onChange={handleChange}
+                            value={po_via}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -150,8 +150,8 @@ const POForm = () => {
                             label="Ref"
                             type="text"
                             name="Ref"
-                            // onChange={handleChange}
-                            // value={mobile || ''}
+                            onChange={handleChange}
+                            value={po_ref}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />

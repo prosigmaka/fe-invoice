@@ -21,6 +21,39 @@ const Container = styled('div')(({ theme }) => ({
 }))
 
 const AppForm = () => {
+    // const { id } = useParams()
+    // const handleSubmit =  async (e ) => {
+    //     e.preventDefault()
+    //     if(invoice) {
+    //      dispatch(updateInvoice( invoice._id, {
+    //          ...invoiceData, 
+    //          subTotal: subTotal, 
+    //          total: total, 
+    //          vat: vat, 
+    //          rates: rates, 
+    //          currency: currency, 
+    //          dueDate: selectedDate, 
+    //          client,
+    //          status: status 
+    //         })) 
+    //      history.push(`/invoice/${invoice._id}`)
+    //     } else {
+
+    //     dispatch(createInvoice({
+    //         ...invoiceData, 
+    //         subTotal: subTotal, 
+    //         total: total, 
+    //         vat: vat, 
+    //         rates: rates, 
+    //         currency: currency, 
+    //         dueDate: selectedDate, 
+    //         client, 
+    //         status: status}, 
+    //         history
+    //         ))
+    //     }
+
+    // }
     return (
         <Container>
             <div className="breadcrumb">

@@ -4,7 +4,7 @@ import {
     Box,
 } from '@mui/material'
 import { styled } from '@mui/system'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 
 const TextField = styled(TextValidator)(() => ({
@@ -32,11 +32,11 @@ const ClientForm = () => {
 
 
     const {
-        clientName,
-        clientAddress,      
-        email,
-        contactperson,
-        position,
+        client_name,
+        client_address,      
+        client_email,
+        contact_person,
+        client_position,
     } = state
 
     return (
@@ -51,8 +51,8 @@ const ClientForm = () => {
                             id="standard-basic"
                             size="small"
                             label="Client Name"
-                            //onChange={handleChange}
-                            //value={username || ''}
+                            onChange={handleChange}
+                            value={client_name}
                             validators={[
                                 'required',  
                             ]}
@@ -65,8 +65,8 @@ const ClientForm = () => {
                             type="text"
                             name="Vendor Address"
                             multiline
-                            //onChange={handleChange}
-                            //value={firstName || ''}
+                            onChange={handleChange}
+                            value={client_address}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -76,9 +76,9 @@ const ClientForm = () => {
                             size="small"
                             type="email"
                             name="email"
-                            //onChange={handleChange}
-                            //value={email || ''}
-                            //validators={['required', 'isEmail']}
+                            onChange={handleChange}
+                            value={client_email}
+                            validators={['required', 'isEmail']}
                             errorMessages={[
                                 'this field is required',
                                 'email is not valid',
@@ -93,8 +93,8 @@ const ClientForm = () => {
                             size="small"
                             type="text"
                             name="contact person"
-                            //onChange={handleChange}
-                            //value={email || ''}
+                            onChange={handleChange}
+                            value={contact_person}
                             validators={['required']}
                             errorMessages={[
                                 'this field is required',
@@ -106,8 +106,8 @@ const ClientForm = () => {
                             size="small"
                             type="text"
                             name="contact person"
-                            //onChange={handleChange}
-                            //value={email || ''}
+                            onChange={handleChange}
+                            value={client_position}
                             validators={['required']}
                             errorMessages={[
                                 'this field is required',

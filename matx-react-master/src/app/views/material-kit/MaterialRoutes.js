@@ -12,7 +12,8 @@ const materialRoutes = [
         element: <AppTable />,
     },
     {
-        path: '/invoice/detail',
+        path: '/invoice/detail/:id',
+        // path: '/invoice/detail',
         // path: '/material/table',
         element: <AppDetail />,
     },

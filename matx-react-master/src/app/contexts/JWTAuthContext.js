@@ -92,7 +92,10 @@ export const AuthProvider = ({ children }) => {
             email: email,
             password: password
         }
+        //---------- uncomment bagian ini untuk nyambung ke BE ------------
+        // const response = await axios.post(`${process.env.REACT_APP_END_POINT}/v1/user/login`, input)
         const response = await axios.post('http://localhost:3002/v1/user/login', input)
+        
 
         console.log(response.data)
         var data = response.data.data
@@ -100,6 +103,17 @@ export const AuthProvider = ({ children }) => {
         const { access_token, user } = data
 
         setSession(access_token)
+        //--------------------------------------------------------------------
+        //----------- uncomment bagian ini untuk liat FE nya dulu ----------
+        // const response = await axios.post('api/auth/login', input)
+
+        // console.log(response.data)
+        // var data = response.data
+        // console.log(data)
+        // const { accessToken, user } = data
+
+        // setSession(accessToken)
+        //-------------------------------------------------------------------
 
         dispatch({
             type: 'LOGIN',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react"
 import { Box, styled, useTheme } from '@mui/system'
 import {
     Card,
@@ -15,6 +15,8 @@ import {
 import {DropzoneDialog} from 'material-ui-dropzone'
 import SimpleTable from './SimpleTable'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+// import { getInvoiceDetail } from "app/redux/actions/invoiceAction";
 
 
 const CardHeader = styled('div')(() => ({
@@ -45,36 +47,62 @@ const Status = styled('h3')(({ textcolor }) => ({
     color: textcolor,
 }))
 
-const UploadArea = styled('div')(() => ({
+const UploadAreaFile = styled('div')(() => ({
     padding: '10px',
-    // paddingRight: '2px',
-    marginLeft: '24px',
-    marginRight: '24px',
     marginBottom: '12px',
-    borderStyle: 'solid',
-    borderWidth:'1px',
-    borderColor:'#C0C0C0',
-    borderRadius:'5px',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
     '& .btn': { 
         padding:'8px',
         width:'9rem',
         borderRadius:'50px',
         marginRight: '200px',
      },
+}))
+const UploadArea = styled('div')(() => ({
+    padding: '10px',
+    marginBottom: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
     '& .btn-v2': { 
         display: 'block',
         width:'4rem',
-        borderStyle:'solid',
-        borderWidth:'1px',
         fontSize:'11px',
         fontWeight:'600',
-        borderRadius:'4px',
         height:'4rem',
         marginLeft: '20px',
+        // borderStyle:'solid',
+        // borderWidth:'1px',
+        // borderRadius:'4px',
      },
+}))
+
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px'
+  }
+
+  export const device = {
+    mobileS: `(min-width: ${size.mobileS})`,
+    mobileM: `(min-width: ${size.mobileM})`,
+    mobileL: `(min-width: ${size.mobileL})`,
+    tablet: `(min-width: ${size.tablet})`,
+    laptop: `(min-width: ${size.laptop})`,
+    laptopL: `(min-width: ${size.laptopL})`,
+    desktop: `(min-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`
+  };
+
+const Container = styled('div') (() => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
 }))
 
 const TableArea = styled('div')(() => ({
@@ -101,13 +129,18 @@ const DetailTable2 = () => {
     const { palette } = useTheme()
     const bgError = palette.error.main
     const bgPrimary = palette.primary.main
-    // const bgSecondary = palette.secondary.main
     const bgWarning = palette.warning.main
     const bgSuccess = palette.success.main
+
+    const dispatch = useDispatch();
 
     const [open, setOpen] = React.useState(false)
     const [upload, setUpload] = React.useState(false)
 
+    const invoiceData = useSelector((state) => state.InvoiceReducer.getInvoiceDetail);
+    const errorData = useSelector((state) => state.InvoiceReducer.errorInvoiceDetail);
+
+    
     function handleClick() {
         setOpen(true)
     }
@@ -124,34 +157,38 @@ const DetailTable2 = () => {
         setUpload(false)
     }
 
+    // const invStatus = invoiceData.invoice_status;
+    // console.log(invStatus);
 
     return(
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
           <CardHeader>
-            <Title>PSM/09012022/XTI/22</Title>
+            {/* <Title>PSM/09012022/XTI/22</Title> */}
+            <Title>{invoiceData.invoice_num}</Title>
               <FormControl>
                 <InputLabel id="demo-simple-select-label">Payment Status</InputLabel>
-                <Select size="small" defaultValue="status_unpaid" label="Payment Status">
-                    <MenuItem value="status_unpaid" onClick={handleClick}>
+                <Select size="small" defaultValue={invoiceData.invoice_status} label="Payment Status">
+                    <MenuItem value="unpaid" onClick={handleClick}>
                             <Status textcolor={bgError}>Unpaid</Status>
                     </MenuItem>
-                    <MenuItem value="status_paid" onClick={handleClick}> 
+                    <MenuItem value="paid" onClick={handleClick}> 
                             <Status textcolor={bgPrimary}>Paid</Status>
                     </MenuItem>
-                    {/* <MenuItem value="status_late"> 
+                    <MenuItem value="late"> 
                             <Status textcolor={bgError}>late</Status>
-                    </MenuItem> */}
-                    <MenuItem value="status_partial"onClick={handleClick}> 
+                    </MenuItem>
+                    <MenuItem value="partial"onClick={handleClick}> 
                             <Status textcolor={bgWarning}>Partial</Status>
                     </MenuItem>
-                    <MenuItem value="status_approve"onClick={handleClick}> 
+                    <MenuItem value="approve"onClick={handleClick}> 
                             <Status textcolor={bgSuccess}>Approve</Status>
                     </MenuItem>
                 </Select>
               </FormControl>
           </CardHeader>
-            <Box overflowX="auto">
-                <UploadArea>
+            <Box overflowX="auto" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}>
+                <Container>
+                <UploadAreaFile>
 
                     <Button 
                         color="primary" 
@@ -163,7 +200,9 @@ const DetailTable2 = () => {
                         <Icon classname="icon" sx={{marginRight:'10%'}}>file_upload</Icon>
                         Upload File
                     </Button>
-                
+                </UploadAreaFile>
+
+                <UploadArea>                
                     <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                         <IconButton 
                             color="info" 
@@ -195,6 +234,7 @@ const DetailTable2 = () => {
                         <SmallText>Generate Receipt</SmallText>
                     </IconButton>
                 </UploadArea>
+                </Container>
                 <TableArea>
                 `   < SimpleTable/>
                 </TableArea>

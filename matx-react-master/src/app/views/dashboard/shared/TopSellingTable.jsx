@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react"
 import { Box, styled, useTheme } from '@mui/system'
 import {
     Card,
@@ -8,23 +8,13 @@ import {
     TableRow,
     TableCell,
     TableBody,
-    MenuItem,
-    Select,
     TablePagination,
+    CircularProgress,
 } from '@mui/material'
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-// const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDQ4MTk5NjQsInVzZXJfaWQiOjJ9.JpFiamwIFz-Fq_aXUTWYrw8mykYOT2tUpThAvd_kczE';
-// const apiUrl = 'localhost:3002/v1/invoice';
-
-// const authAxios = axios.create({
-//     baseURL: apiUrl,
-//     headers: {
-//         Authorization:`Bearer ${accessToken}`
-//     }
-// })
+import { useDispatch, useSelector } from "react-redux";
+import { getInvoiceList, getInvoiceDetail } from "app/redux/actions/invoiceAction";
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -84,11 +74,26 @@ const TopSellingTable = () => {
         setRowsPerPage(+event.target.value)
         setPage(0)
     }
+    // -------------------------------
+
+    const dispatch = useDispatch();
+    const invoiceData = useSelector((state) => state.InvoiceReducer.getInvoiceList);
+    const errorData = useSelector((state) => state.InvoiceReducer.errorInvoiceList);
+
+    useEffect(() => {
+        console.log("1. use effect getInvoiceList");
+        console.log(invoiceData);
+        console.log(invoiceData.length);
+        // console.log(invoiceData.data);
+        // console.log(getInvoiceList.data);
+        dispatch(getInvoiceList());
+    }, [dispatch]);
+
+    // --------------------------------
 
     const { palette } = useTheme()
     const bgError = palette.error.main
     const bgPrimary = palette.primary.main
-    // const bgSecondary = palette.secondary.main
     const bgWarning = palette.warning.main
     const bgSuccess = palette.success.main
 
@@ -96,11 +101,8 @@ const TopSellingTable = () => {
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
             <CardHeader>
                 <Title>List Invoice</Title>
-                {/* <Select size="small" defaultValue="this_month">
-                    <MenuItem value="this_month">This Month</MenuItem>
-                    <MenuItem value="last_month">Last Month</MenuItem>
-                </Select> */}
             </CardHeader>
+            {invoiceData ? (
             <Box overflowX="auto">
                 <DataTable>
                     <TableHead>
@@ -124,72 +126,76 @@ const TopSellingTable = () => {
                                 Amount
                             </TableCell>
                             <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
-                                Description
-                            </TableCell>
-                            <TableCell colSpan={2} align="center" sx={{ px: 0, fontSize: 14 }}>
                                 Detail
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {dataList
+                        {invoiceData
                             .slice(
                                 page * rowsPerPage,
                                 page * rowsPerPage + rowsPerPage
                             )
-                            .map((data, index) => (
-                            <TableRow key={index} hover>
+                            .map((inv) => (
+                            <TableRow key={inv.id} hover>
                                 {/* Kolom status */}
                                 <TableCell colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
                                     {
-                                        data.status === 'paid' ? ( 
-                                            <Small bgcolor={bgPrimary}>{data.status} </Small> ) :
-                                        data.status === 'late' ? (
-                                            <Small bgcolor={bgError}>{data.status}</Small> ) :
-                                        data.status === 'unpaid' ? (
-                                            <Small bgcolor={bgError}>{data.status}</Small> ) :
-                                        data.status === 'partial' ? (
-                                            <Small bgcolor={bgWarning}>{data.status}</Small> ) :
-                                        data.status === 'approve' ? (
-                                            <Small bgcolor={bgSuccess}>{data.status}</Small> ) :
-                                        (   <Small bgcolor={bgPrimary}>{data.status}</Small>)
+                                        inv.invoice_status === 'paid' ? ( 
+                                            <Small bgcolor={bgPrimary}>{inv.invoice_status} </Small> ) :
+                                        inv.invoice_status === 'late' ? (
+                                            <Small bgcolor={bgError}>{inv.invoice_status}</Small> ) :
+                                        inv.invoice_status === 'unpaid' ? (
+                                            <Small bgcolor={bgError}>{inv.invoice_status}</Small> ) :
+                                        inv.invoice_status === 'partial' ? (
+                                            <Small bgcolor={bgWarning}>{inv.invoice_status}</Small> ) :
+                                            inv.invoice_status === 'approve' ? (
+                                            <Small bgcolor={bgSuccess}>{inv.invoice_status}</Small> ) :
+                                        (   <Small bgcolor={bgPrimary}>{inv.invoice_status}</Small>)
                                     }
+                                    {/* <Small bgcolor={bgError}>unpaid</Small> */}
                                 </TableCell>
                                 {/* Kolom invoice id */}
                                 <TableCell align="left" colSpan={2} sx={{ px: 0, textTransform: 'capitalize' }}>
-                                    {data.invoice}
+                                    {inv.invoice_num}
                                 </TableCell>
                                 {/* Kolom nama client */}
                                 <TableCell colSpan={2} sx={{ px: 0 }} align="center">
-                                    {data.client}
+                                    {inv.client_name}
                                 </TableCell>
                                 {/* Kolom invoice date */}
                                 <TableCell colSpan={2} sx={{ px: 0 }} align="center">
-                                    {data.invoiceDate}
+                                    {inv.invoice_date}
                                 </TableCell>
                                 {/* Kolom due date */}
                                 <TableCell colSpan={2} sx={{ px: 0 }} align="center">
-                                    {data.dueDate}
+                                    {inv.due_date}
                                 </TableCell>
                                 {/* Kolom amount */}
                                 <TableCell align="center"
                                     colSpan={2}
                                     sx={{ px: 0, textTransform: 'capitalize' }}
                                 >
-                                    Rp
+                                    {inv.item_total}
+                                    {/* Rp
                                     {data.amount > 999
                                         ? (data.amount / 1000000).toFixed(1) +
                                         'jt'
-                                        : data.amount}
+                                        : data.amount} */}
                                 </TableCell>
-                                {/* Kolom description */}
-                                <TableCell colSpan={2} sx={{ px: 0 }} align="center">
-                                    {data.description}
-                                </TableCell>
-                                {/* Kolom button edit */}
                                 <TableCell sx={{ px: 0 }} align="center" colSpan={2}>
-                                    <Link to={"/invoice/detail"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                    {/* <Link to={"/invoice/detail"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                         <IconButton>
+                                            <ReadMoreIcon color="primary" />
+                                        </IconButton>
+                                    </Link> */}
+                                    <Link to={"/invoice/detail/" + inv.id} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
+                                        <IconButton 
+                                            type="button"
+                                            onClick={() => {
+                                                dispatch(getInvoiceDetail(inv.id));
+                                            }}
+                                        >
                                             <ReadMoreIcon color="primary" />
                                         </IconButton>
                                     </Link>
@@ -202,7 +208,7 @@ const TopSellingTable = () => {
                     sx={{ px: 2 }}
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={dataList.length}
+                    count={invoiceData.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     backIconButtonProps={{
@@ -213,67 +219,44 @@ const TopSellingTable = () => {
                     }}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                />
+                /> 
             </Box>
+            ) : (
+                <div>
+                    {errorData ? (
+                        <h5>{errorData}</h5>
+                        ) : (<CircularProgress />
+                    )}
+                </div>
+            )}
+            
+
+
+            {/* <Box>
+                <DataTable>
+                    <p>GIMANA TAMPIL GAK SI DATA DATANYA?</p>
+                    {/* <p>{props.client_name}</p> */}
+                    {/* console.log(invoiceData.length); */}
+                    {/* {invoiceData ? (
+                        invoiceData.map((inv) => {
+                            return (
+                                <div key={inv.id}>
+                                    <p>{inv.client_name}</p>
+                                    <p>{inv.ordered_by}</p>
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <div>
+                            {invoiceData.errorInvoiceList ? (
+                                <h5>{invoiceData.errorUsersList}</h5>
+                                ) : (<CircularProgress /> 
+                            )}
+                        </div>
+                    )}
+                </DataTable>
+            </Box> */} 
         </Card>
     )
 }
-
-const dataList = [
-    {
-        status: 'paid',
-        invoice: 'PSM/021/BCA/11',
-        client: 'Jungkook',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 12000000,
-        description: 'Berkas lengkap',
-    },
-    {
-        status: 'unpaid',
-        invoice: 'PSM/022/BCA/11',
-        client: 'Yoongi',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 12000000,
-        description: 'Berkas lengkap',
-    },
-    {
-        status: 'late',
-        invoice: 'PSM/023/BCA/11',
-        client: 'Taehyung',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 12000000,
-        description: 'Berkas lengkap',
-    },
-    {
-        status: 'partial',
-        invoice: 'PSM/024/BCA/11',
-        client: 'Jimin',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 12000000,
-        description: 'Berkas lengkap',
-    },
-    {
-        status: 'approve',
-        invoice: 'PSM/025/BCA/11',
-        client: 'Jin',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 12000000,
-        description: 'Berkas lengkap',
-    },
-    {
-        status: 'late',
-        invoice: 'PSM/025/BCA/11',
-        client: 'RM',
-        invoiceDate: '12/01/2022',
-        dueDate: '12/12/2022',
-        amount: 19000000,
-        description: 'Berkas lengkap',
-    },
-]
-
 export default TopSellingTable

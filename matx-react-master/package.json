@@ -42,6 +42,7 @@
         "redux": "^4.1.2",
         "redux-thunk": "^2.4.0",
         "shortid": "^2.2.16",
+        "sweetalert2": "^11.4.4",
         "yup": "^0.32.11"
     },
     "scripts": {

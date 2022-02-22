@@ -1,5 +1,5 @@
-// import axios from "axios";
-import axiosApp from '../../../axios';
+import axios from "axios";
+// import axiosApp from '../../../axios';
 // import { base_url } from "../../../config";
 
 export const GET_INVOICE_LIST = "GET_INVOICE_LIST";
@@ -8,24 +8,17 @@ export const CREATE_INVOICE = "CREATE_INVOICE";
 export const UPDATE_INVOICE = "UPDATE_INVOICE";
 export const DETAIL_INVOICE = "DETAIL_INVOICE";
 
-// const accessToken = localStorage.getItem('accessToken', accessToken);
-// console.log(localStorage.getItem("accessToken"));
-// const config = {
-//     headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
-//     // headers: { Authorization: `${accessToken}` }
-// };
 
 export const getInvoiceList = () => {
-    console.log("2. Masuk action getList");
     return(dispatch) => {
-            axiosApp({
+            axios({
                 method: "GET",
-                url:"http://localhost:3002/v1/invoice",
+                url:"http://localhost:3002/v1/invoice/",
                 timeout: 120000
             })
             .then((response) => {
                 dispatch({
-                    type: 'GET_INVOICE_LIST',
+                    type: GET_INVOICE_LIST,
                     payload: {
                         data: response.data.data,
                         errorMessage: false,
@@ -34,7 +27,7 @@ export const getInvoiceList = () => {
             })
             .catch((error) => {
                 dispatch({
-                    type: 'GET_INVOICE_LIST',
+                    type: GET_INVOICE_LIST,
                     payload: {
                         data: false,
                         errorMessage: error.message,
@@ -45,9 +38,8 @@ export const getInvoiceList = () => {
 };
 
 export const getInvoiceDetail = (id) => {
-    console.log("2. Masuk action getList");
     return(dispatch) => {
-            axiosApp({
+            axios({
                 method: "GET",
                 url:"http://localhost:3002/v1/invoice/" + id,
                 timeout: 120000
@@ -74,9 +66,8 @@ export const getInvoiceDetail = (id) => {
 };
 
 export const createInvoice = (data) => {
-    console.log("2. Masuk action create");
     return(dispatch) => {
-        axiosApp({
+        axios({
                 method: "POST",
                 url:"http://localhost:3002/v1/invoice",
                 timeout: 120000,
@@ -104,9 +95,9 @@ export const createInvoice = (data) => {
 };
 
 export const updateInvoice = (data) => {
-    console.log("2. Masuk action create");
+    // console.log("2. Masuk action create");
     return(dispatch) => {
-        axiosApp({
+        axios({
                 method: "PUT",
                 url:"http://localhost:3002/v1/invoice",
                 timeout: 120000,

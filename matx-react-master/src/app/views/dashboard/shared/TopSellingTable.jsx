@@ -14,7 +14,7 @@ import {
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { getInvoiceList, getInvoiceDetail } from "app/redux/actions/invoiceAction";
+import { getInvoiceList, detailInvoice, getInvoiceDetail } from "app/redux/actions/invoiceAction";
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -87,6 +87,7 @@ const TopSellingTable = () => {
         // console.log(invoiceData.data);
         // console.log(getInvoiceList.data);
         dispatch(getInvoiceList());
+        // dispatch(getInvoiceDetail());
     }, [dispatch]);
 
     // --------------------------------
@@ -193,7 +194,8 @@ const TopSellingTable = () => {
                                         <IconButton 
                                             type="button"
                                             onClick={() => {
-                                                dispatch(getInvoiceDetail(inv.id));
+                                                dispatch(detailInvoice(inv));
+                                                // dispatch(getInvoiceDetail(inv.id));
                                             }}
                                         >
                                             <ReadMoreIcon color="primary" />

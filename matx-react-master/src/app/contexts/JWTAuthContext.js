@@ -153,9 +153,9 @@ export const AuthProvider = ({ children }) => {
                 const accessToken = window.localStorage.getItem('accessToken')
 
                 if (accessToken && isValidToken(accessToken)) {
-                    setSession(accessToken)
-                    const response = await axios.get('/api/auth/profile')
-                    const { user } = response.data
+                    // setSession(accessToken)
+                    // const response = await axios.get('/api/auth/profile')
+                    const { user } = "Admin Prosigmaka"
 
                     dispatch({
                         type: 'INIT',

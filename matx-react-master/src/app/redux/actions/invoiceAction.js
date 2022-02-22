@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from "axios";
+import axiosApp from '../../../axios';
 // import { base_url } from "../../../config";
 
 export const GET_INVOICE_LIST = "GET_INVOICE_LIST";
@@ -17,7 +18,7 @@ export const DETAIL_INVOICE = "DETAIL_INVOICE";
 export const getInvoiceList = () => {
     console.log("2. Masuk action getList");
     return(dispatch) => {
-            axios({
+            axiosApp({
                 method: "GET",
                 url:"http://localhost:3002/v1/invoice",
                 timeout: 120000
@@ -46,7 +47,7 @@ export const getInvoiceList = () => {
 export const getInvoiceDetail = (id) => {
     console.log("2. Masuk action getList");
     return(dispatch) => {
-            axios({
+            axiosApp({
                 method: "GET",
                 url:"http://localhost:3002/v1/invoice/" + id,
                 timeout: 120000
@@ -75,7 +76,7 @@ export const getInvoiceDetail = (id) => {
 export const createInvoice = (data) => {
     console.log("2. Masuk action create");
     return(dispatch) => {
-            axios({
+        axiosApp({
                 method: "POST",
                 url:"http://localhost:3002/v1/invoice",
                 timeout: 120000,
@@ -105,7 +106,7 @@ export const createInvoice = (data) => {
 export const updateInvoice = (data) => {
     console.log("2. Masuk action create");
     return(dispatch) => {
-            axios({
+        axiosApp({
                 method: "PUT",
                 url:"http://localhost:3002/v1/invoice",
                 timeout: 120000,

@@ -50,6 +50,7 @@ const Home = () => {
                 <ul>
                     {list.map((item) =>(
                         <ChartList 
+                        key={item.id}
                         title={item.title}
                         id={item.id}
                         active={selected === item.id}

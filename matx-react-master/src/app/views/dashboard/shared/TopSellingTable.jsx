@@ -14,7 +14,7 @@ import {
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { getInvoiceList, detailInvoice, getInvoiceDetail } from "app/redux/actions/invoiceAction";
+import { getInvoiceList, getInvoiceDetail, detailInvoice } from "app/redux/actions/invoiceAction";
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -87,7 +87,6 @@ const TopSellingTable = () => {
         // console.log(invoiceData.data);
         // console.log(getInvoiceList.data);
         dispatch(getInvoiceList());
-        // dispatch(getInvoiceDetail());
     }, [dispatch]);
 
     // --------------------------------
@@ -185,17 +184,12 @@ const TopSellingTable = () => {
                                         : data.amount} */}
                                 </TableCell>
                                 <TableCell sx={{ px: 0 }} align="center" colSpan={2}>
-                                    {/* <Link to={"/invoice/detail"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
-                                        <IconButton>
-                                            <ReadMoreIcon color="primary" />
-                                        </IconButton>
-                                    </Link> */}
                                     <Link to={"/invoice/detail/" + inv.id} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                         <IconButton 
-                                            type="button"
+                                            type="submit"
                                             onClick={() => {
-                                                dispatch(detailInvoice(inv));
-                                                // dispatch(getInvoiceDetail(inv.id));
+                                                dispatch(getInvoiceDetail(inv.id));
+                                                // dispatch(detailInvoice(inv));
                                             }}
                                         >
                                             <ReadMoreIcon color="primary" />
@@ -230,34 +224,7 @@ const TopSellingTable = () => {
                         ) : (<CircularProgress />
                     )}
                 </div>
-            )}
-            
-
-
-            {/* <Box>
-                <DataTable>
-                    <p>GIMANA TAMPIL GAK SI DATA DATANYA?</p>
-                    {/* <p>{props.client_name}</p> */}
-                    {/* console.log(invoiceData.length); */}
-                    {/* {invoiceData ? (
-                        invoiceData.map((inv) => {
-                            return (
-                                <div key={inv.id}>
-                                    <p>{inv.client_name}</p>
-                                    <p>{inv.ordered_by}</p>
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <div>
-                            {invoiceData.errorInvoiceList ? (
-                                <h5>{invoiceData.errorUsersList}</h5>
-                                ) : (<CircularProgress /> 
-                            )}
-                        </div>
-                    )}
-                </DataTable>
-            </Box> */} 
+            )} 
         </Card>
     )
 }

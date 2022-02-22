@@ -157,13 +157,9 @@ const DetailTable2 = () => {
         setUpload(false)
     }
 
-    // const invStatus = invoiceData.invoice_status;
-    // console.log(invStatus);
-
     return(
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
           <CardHeader>
-            {/* <Title>PSM/09012022/XTI/22</Title> */}
             <Title>{invoiceData.invoice_num}</Title>
               <FormControl>
                 <InputLabel id="demo-simple-select-label">Payment Status</InputLabel>

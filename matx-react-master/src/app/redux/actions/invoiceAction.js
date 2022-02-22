@@ -20,14 +20,9 @@ export const getInvoiceList = () => {
             axios({
                 method: "GET",
                 url:"http://localhost:3002/v1/invoice",
-                // url: "http://localhost:3000/data",
-                // headers: {
-                //     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                // },
                 timeout: 120000
             })
             .then((response) => {
-                // console.log("3. Berhasil dapat data", response);
                 dispatch({
                     type: 'GET_INVOICE_LIST',
                     payload: {
@@ -37,7 +32,6 @@ export const getInvoiceList = () => {
                 });
             })
             .catch((error) => {
-                // console.log(localStorage.getItem("accessToken"));
                 dispatch({
                     type: 'GET_INVOICE_LIST',
                     payload: {
@@ -49,81 +43,15 @@ export const getInvoiceList = () => {
     };
 };
 
-// export const getInvoiceList = () => {
-//     return(dispatch) => {
-//             axios
-//             .get("http://localhost:3002/v1/invoice",
-//             // .get("http://localhost:3000/data",
-//             // {headers:{Authorization: `Bearer ${accessToken}`}})
-//                 { headers: {
-//                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-//                 }}
-//             )
-//             .then(function (response){
-//                 console.log("3. Berhasil dapat data", response);
-//                 dispatch({
-//                     type: 'GET_INVOICE_LIST',
-//                     payload: {
-//                         data: response.data,
-//                         errorMessage: false,
-//                     },
-//                 });
-//             })
-//             .catch(function(error){
-//                 console.log(localStorage.getItem("accessToken"));
-//                 dispatch({
-//                     type: 'GET_INVOICE_LIST',
-//                     payload: {
-//                         data: false,
-//                         errorMessage: error.message,
-//                     },
-//                 });
-//             });
-//     };
-// };
-
-// export const getInvoiceDetail = (id) => {
-//     return(dispatch) => {
-//         axios
-//             // .get("http://localhost:3002/v1/invoice" + id,
-//             .get("http://localhost:3000/data/" + id,
-//             // {headers:{Authorization: `Bearer ${accessToken}`}})
-//             )
-//             .then(function(response){
-//                 dispatch({
-//                     type: 'GET_INVOICE_DETAIL',
-//                     payload: {
-//                         data: response.data,
-//                         errorMessage: false
-//                     },
-//                 });
-//             })
-//             .catch(function(error) {
-//                 dispatch({
-//                     type: 'GET_INVOICE_DETAIL',
-//                     payload: {
-//                         data: false,
-//                         errorMessage: error.message,
-//                     },
-//                 });
-//             });
-//     };
-// };
-
 export const getInvoiceDetail = (id) => {
     console.log("2. Masuk action getList");
     return(dispatch) => {
             axios({
                 method: "GET",
-                url:"http://localhost:3002/v1/invoice" + id,
-                // url: "http://localhost:3000/data/" + id,
-                // headers: {
-                //     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                // },
+                url:"http://localhost:3002/v1/invoice/" + id,
                 timeout: 120000
             })
             .then((response) => {
-                // console.log("3. Berhasil dapat data", response);
                 dispatch({
                     type: 'GET_INVOICE_DETAIL',
                     payload: {
@@ -133,7 +61,6 @@ export const getInvoiceDetail = (id) => {
                 });
             })
             .catch((error) => {
-                // console.log(localStorage.getItem("accessToken"));
                 dispatch({
                     type: 'GET_INVOICE_DETAIL',
                     payload: {
@@ -151,15 +78,10 @@ export const createInvoice = (data) => {
             axios({
                 method: "POST",
                 url:"http://localhost:3002/v1/invoice",
-                // url: "http://localhost:3000/data",
-                // headers: {
-                //     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                // },
                 timeout: 120000,
                 data: data
             })
             .then((response) => {
-                // console.log("3. Berhasil dapat data", response);
                 dispatch({
                     type: 'CREATE_INVOICE',
                     payload: {
@@ -169,7 +91,6 @@ export const createInvoice = (data) => {
                 });
             })
             .catch((error) => {
-                // console.log(localStorage.getItem("accessToken"));
                 dispatch({
                     type: 'CREATE_INVOICE',
                     payload: {
@@ -187,15 +108,10 @@ export const updateInvoice = (data) => {
             axios({
                 method: "PUT",
                 url:"http://localhost:3002/v1/invoice",
-                // url: "http://localhost:3000/data",
-                // headers: {
-                //     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                // },
                 timeout: 120000,
                 data: data
             })
             .then((response) => {
-                // console.log("3. Berhasil dapat data", response);
                 dispatch({
                     type: 'UPDATE_INVOICE',
                     payload: {
@@ -205,7 +121,6 @@ export const updateInvoice = (data) => {
                 });
             })
             .catch((error) => {
-                // console.log(localStorage.getItem("accessToken"));
                 dispatch({
                     type: 'UPDATE_INVOICE',
                     payload: {

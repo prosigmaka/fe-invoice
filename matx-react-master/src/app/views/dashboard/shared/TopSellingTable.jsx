@@ -14,7 +14,7 @@ import {
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { getInvoiceList, getInvoiceDetail, detailInvoice } from "app/redux/actions/invoiceAction";
+import { getInvoiceList, getInvoiceDetail, deleteInvoiceDetail } from "app/redux/actions/invoiceAction";
 
 const CardHeader = styled('div')(() => ({
     paddingLeft: '24px',
@@ -81,11 +81,6 @@ const TopSellingTable = () => {
     const errorData = useSelector((state) => state.InvoiceReducer.errorInvoiceList);
 
     useEffect(() => {
-        console.log("1. use effect getInvoiceList");
-        console.log(invoiceData);
-        console.log(invoiceData.length);
-        // console.log(invoiceData.data);
-        // console.log(getInvoiceList.data);
         dispatch(getInvoiceList());
     }, [dispatch]);
 
@@ -153,7 +148,6 @@ const TopSellingTable = () => {
                                             <Small bgcolor={bgSuccess}>{inv.invoice_status}</Small> ) :
                                         (   <Small bgcolor={bgPrimary}>{inv.invoice_status}</Small>)
                                     }
-                                    {/* <Small bgcolor={bgError}>unpaid</Small> */}
                                 </TableCell>
                                 {/* Kolom invoice id */}
                                 <TableCell align="left" colSpan={2} sx={{ px: 0, textTransform: 'capitalize' }}>
@@ -186,10 +180,9 @@ const TopSellingTable = () => {
                                 <TableCell sx={{ px: 0 }} align="center" colSpan={2}>
                                     <Link to={"/invoice/detail/" + inv.id} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>
                                         <IconButton 
-                                            type="submit"
+                                            type="button"
                                             onClick={() => {
                                                 dispatch(getInvoiceDetail(inv.id));
-                                                // dispatch(detailInvoice(inv));
                                             }}
                                         >
                                             <ReadMoreIcon color="primary" />

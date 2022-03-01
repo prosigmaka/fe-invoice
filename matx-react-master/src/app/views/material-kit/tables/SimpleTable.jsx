@@ -11,30 +11,39 @@ import {
 import { Box, styled } from '@mui/system'
 import { Link } from 'react-router-dom';
 
-const StyledTable = styled(Table)(({ theme }) => ({
+const StyledTable = styled(Table)(() => ({
+    minWidth: 400,
+    overflowX: 'auto',
+    position: 'static',
     whiteSpace: 'pre',
-    '& thead': {
-        '& tr': {
-            '& th': {
-                paddingLeft: 0,
-                paddingRight: 0,
-            },
-        },
+    // '& thead': {
+    //     '& tr': {
+    //         '& th': {
+    //             paddingLeft: 0,
+    //             paddingRight: 0,
+    //         },
+    //     },
+    // },
+    // '& tbody': {
+    //     '& tr': {
+    //         '& td': {
+    //             paddingLeft: 0,
+    //             // textTransform: 'capitalize',
+    //         },
+    //     },
+    // },
+    '& td': {
+        borderBottom: 'none',
     },
-    '& tbody': {
-        '& tr': {
-            '& td': {
-                paddingLeft: 0,
-                // textTransform: 'capitalize',
-            },
-        },
+    '& td:first-of-type': {
+        // paddingLeft: '16px !important',
     },
 }))
 
 const ActionBox = styled('div')(() => ({
     paddingLeft: '40%',
     paddingRight: '60%',
-    // marginBottom: '12px',
+    margin: '0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -74,21 +83,21 @@ const SimpleTable = () => {
             <StyledTable>
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center">File Name</TableCell>
-                        <TableCell align="center">Upload Time</TableCell>
-                        <TableCell align="center">Action</TableCell>
+                        <TableCell colSpan={3} align="center" sx={{ px: 0, fontSize: 14 }}>File Name</TableCell>
+                        <TableCell colSpan={3} align="center" sx={{ px: 0, fontSize: 14 }}>Upload Time</TableCell>
+                        <TableCell colSpan={3} align="center" sx={{ px: 0, fontSize: 14 }}>Action</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {subscribarList.map((subscriber, index) => (
-                        <TableRow key={index}>
-                            <TableCell align="center">
+                        <TableRow key={index} hover>
+                            <TableCell colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
                                 {subscriber.namefile}
                             </TableCell>
-                            <TableCell align="center">
+                            <TableCell align="center" colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
                                 {subscriber.date}
                             </TableCell>
-                            <TableCell align="center">
+                            <TableCell align="center" colSpan={3} align="center" sx={{ px: 0, textTransform: 'capitalize' }}>
                               <ActionBox>
                                 {/* /form/id */}
                                 {/* <Link to={"/form"} style={{ color:'inherit', textDecoration: 'none', display: 'block' }}>

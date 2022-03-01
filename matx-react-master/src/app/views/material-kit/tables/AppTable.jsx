@@ -1,10 +1,10 @@
-import React from 'react'
-import SimpleTable from './SimpleTable'
-import PaginationTable from './PaginationTable'
-import InvoiceTable from './InvoiceTable'
-import { Breadcrumb, SimpleCard } from 'app/components'
-import { Box, styled } from '@mui/system'
+import React, { useEffect } from "react"
+import { Breadcrumb} from 'app/components'
+import { styled } from '@mui/system'
 import TopSellingTable from './../../dashboard/shared/TopSellingTable'
+
+import { useDispatch } from "react-redux";
+import { deleteInvoiceDetail } from "app/redux/actions/invoiceAction";
 
 const Container = styled('div')(({ theme }) => ({
     margin: '30px',
@@ -21,6 +21,13 @@ const Container = styled('div')(({ theme }) => ({
 }))
 
 const AppTable = () => {
+
+    // const dispatch = useDispatch();
+    
+    // useEffect(() => {
+    //     dispatch(deleteInvoiceDetail())
+    // }, [dispatch]);
+
     return (
         <Container>
             <div className="breadcrumb">
